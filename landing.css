@@ -126,6 +126,7 @@ main {
   min-width: 0;
   padding: 30px clamp(18px, 4.2vw, 58px) 70px;
 }
+.side-nav a .nav-icon { color: inherit; font: inherit; }
 .side-nav a,
 .doc-list .doc-item {
   display: block;
@@ -226,7 +227,6 @@ a:focus-visible {
   }
   .side-nav { display: flex; overflow: auto; gap: 3px; padding-bottom: 4px; }
   .side-nav a { width: auto; white-space: nowrap; }
-  .side-nav a span { display: none; }
   .nav-label { display: none; }
   .doc-list { display: flex; overflow-x: auto; gap: 3px; padding-bottom: 4px; }
   .doc-list .doc-item { flex: 0 0 auto; width: auto; max-width: 280px; white-space: nowrap; }
