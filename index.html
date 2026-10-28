@@ -898,7 +898,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
       if (titleEl) titleEl.textContent = title;
       if (pathEl) pathEl.textContent = path;
       if (content) {
-        content.innerHTML = '<p style="font-size:12px;color:var(--muted)">Загрузка документа…</p>';
+        content.innerHTML = '<p class="docs-placeholder">Загрузка документа…</p>';
         try {
           if (path === 'PROCESS.md' || path === 'PROJECT_CONTEXT.md') {
             const docUrl = 'https://raw.githubusercontent.com/alexpikman/PQlocalAgentOSv3/main/' + path;
@@ -918,7 +918,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
           const fallbackUrl = path === 'PROJECT_CONTEXT.md'
             ? 'https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROJECT_CONTEXT.md'
             : 'https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROCESS.md';
-          content.innerHTML = '<p style="font-size:12px;color:var(--muted)">Не удалось загрузить документ. <a href="' + fallbackUrl + '" target="_blank" rel="noopener noreferrer">Открыть документ в GitHub</a>.</p>';
+          content.innerHTML = '<p class="docs-placeholder">Не удалось загрузить документ. <a href="' + fallbackUrl + '" target="_blank" rel="noopener noreferrer">Открыть документ в GitHub</a>.</p>';
         }
       }
     });
