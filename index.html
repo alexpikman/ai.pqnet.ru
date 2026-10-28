@@ -125,30 +125,48 @@
         <section class="section section-muted" id="uniqueness">
             <div class="container">
                 <div class="section-heading">
-                    <div><div class="section-kicker">УНИКАЛЬНОСТЬ</div><h2>Не просто чат с моделью</h2></div>
-                    <p>PQlocalAgentOS v3 ориентирован на управляемую работу агентов с проектами, задачами и инструментами — с открытым кодом и возможностью выбирать модели.</p>
+                    <div><div class="section-kicker">СРАВНЕНИЕ РЕШЕНИЯ</div><h2>Уникальность PQlocalAgentOS v3</h2></div>
+                    <p>Сравнение подходов к работе с ИИ-агентами: единая локальная рабочая среда, выбор моделей и контроль выполнения задач.</p>
                 </div>
-                <div class="feature-grid">
-                    <article class="feature-card"><h3>Одна среда вместо разрозненных инструментов</h3><p>Проекты, задачи, память, агенты, модели и системная информация доступны в общей рабочей среде.</p></article>
-                    <article class="feature-card"><h3>Модель не привязана к роли</h3><p>Архитектура рассчитана на выбор провайдера и модели под конкретную задачу, в том числе локальных моделей.</p></article>
-                    <article class="feature-card"><h3>Контроль исполнения</h3><p>Разрешения и подтверждение критических действий позволяют сочетать автоматизацию с контролем оператора.</p></article>
-                    <article class="feature-card"><h3>Открытая и проверяемая разработка</h3><p>Код и изменения доступны в GitHub. Текущее состояние проекта можно проверять по репозиторию, а не по рекламным обещаниям.</p></article>
-                </div>
-                <div class="comparison-table-wrap" role="region" aria-label="Сравнение подходов" tabindex="0">
-                    <table class="comparison-table">
-                        <thead><tr><th>Критерий</th><th>PQlocalAgentOS v3</th><th>Фреймворки агентной разработки</th><th>Облачные AI-интерфейсы</th></tr></thead>
-                        <tbody>
-                            <tr><th scope="row">Среда работы</th><td><strong>Единое локальное рабочее пространство</strong> для проектов, агентов и задач</td><td>Часто требуют самостоятельной сборки интерфейса и инфраструктуры</td><td>Готовый сервис, управляемый поставщиком</td></tr>
-                            <tr><th scope="row">Выбор моделей</th><td>Локальные и облачные провайдеры, если настроены</td><td>Зависит от фреймворка и интеграций</td><td>Обычно модели и доступ задаются платформой</td></tr>
-                            <tr><th scope="row">Контроль действий</th><td>Роли, разрешения и механизмы подтверждения критических операций</td><td>Зависит от реализации приложения</td><td>Ограничивается возможностями сервиса</td></tr>
-                            <tr><th scope="row">Данные и приватность</th><td>Локальная обработка возможна с локальными моделями; облачные запросы уходят провайдеру</td><td>Зависит от выбранной инфраструктуры</td><td>Запросы обрабатываются облачным сервисом</td></tr>
-                            <tr><th scope="row">Прозрачность</th><td>Открытый исходный код на GitHub</td><td>Зависит от лицензии проекта</td><td>Внутренняя реализация обычно закрыта</td></tr>
+                <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm mb-8" role="region" aria-label="Сравнение решений" tabindex="0">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-slate-100/80 border-b border-slate-200 font-bold text-slate-700 uppercase">
+                                <th class="py-4 px-6">Критерий</th>
+                                <th class="py-4 px-6 text-sky-700 bg-sky-50/50">PQlocalAgentOS v3</th>
+                                <th class="py-4 px-6 text-slate-500">Фреймворки разработки</th>
+                                <th class="py-4 px-6 text-slate-500">Облачные AI-интерфейсы</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr>
+                                <th scope="row" class="py-4 px-6 font-semibold">Среда работы</th>
+                                <td class="py-4 px-6 bg-sky-50/30 text-sky-900 font-bold">Единое локальное пространство</td>
+                                <td class="py-4 px-6 text-slate-500">Требуют сборки и настройки</td>
+                                <td class="py-4 px-6 text-slate-500">Готовый закрытый сервис</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="py-4 px-6 font-semibold">Выбор моделей</th>
+                                <td class="py-4 px-6 bg-sky-50/30 text-sky-900 font-bold">Локальные и облачные провайдеры</td>
+                                <td class="py-4 px-6 text-slate-500">Зависит от интеграций кода</td>
+                                <td class="py-4 px-6 text-slate-500">Жёстко заданы платформой</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="py-4 px-6 font-semibold">Контроль действий</th>
+                                <td class="py-4 px-6 bg-sky-50/30 text-sky-900 font-bold">Роли, разрешения и Verification Gate</td>
+                                <td class="py-4 px-6 text-slate-500">Зависит от реализации</td>
+                                <td class="py-4 px-6 text-slate-500">Ограничено сервисом</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="py-4 px-6 font-semibold">Прозрачность</th>
+                                <td class="py-4 px-6 bg-sky-50/30 text-sky-900 font-bold">Open Source на GitHub</td>
+                                <td class="py-4 px-6 text-slate-500">Зависит от лицензии</td>
+                                <td class="py-4 px-6 text-slate-500">Закрытая реализация</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="comparison-note">
-                    <strong>Важное отличие:</strong> это не обещание «100% приватности» при любых настройках. При работе с локальной моделью запрос может оставаться на вашем устройстве; облачная модель обрабатывает данные по правилам своего провайдера.
-                </div>
+                <p class="text-[11px] text-slate-500 text-center font-mono">Важное отличие: при работе с локальной моделью запрос остаётся на устройстве; облачные модели обрабатываются по правилам провайдера.</p>
             </div>
         </section>
         <section class="section" id="features">
