@@ -549,10 +549,21 @@ a { transition: color .18s ease, background .18s ease, border-color .18s ease; }
     .section { padding-block: 62px; }
 }
 @media (max-width: 600px) {
-    .container { width: min(100% - 32px, 1200px); }
+    /* Keep a consistent gutter on narrow screens so content never touches the viewport edge. */
+    .container {
+        width: calc(100% - 24px);
+        max-width: 1200px;
+    }
+    body {
+        overflow-x: clip;
+    }
     .hero h1 { letter-spacing: -1.65px; }
     .section-heading { gap: 12px; }
     .feature-card, .metric-card { padding: 21px; }
+    .closing-cta { min-width: 0; }
+    .docs-content-header { padding: 16px 12px; }
+    .docs-rendered-content { overflow-wrap: anywhere; }
+    .comparison-table-wrap { max-width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
     .feature-card:hover, .metric-card:hover, .tech-card:hover { transform: none; }
