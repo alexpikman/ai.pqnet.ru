@@ -211,9 +211,9 @@ a:focus-visible {
   vertical-align: middle;
 }
 .nav-icon svg { display: block; width: 18px; height: 18px; }
-.terminal-dot.dot-red { background: #ff6b6b; }
-.terminal-dot.dot-amber { background: #ffbd69; }
-.terminal-dot.dot-green { background: #8be5a5; }
+.terminal-dot.dot-red { background: var(--term-dot-red); }
+.terminal-dot.dot-amber { background: var(--term-dot-amber); }
+.terminal-dot.dot-green { background: var(--term-dot-green); }
 @media (max-width: 1000px) {
   .layout { grid-template-columns: 1fr; padding: 0; gap: 0; }
   aside.side, .sidebar {
