@@ -180,8 +180,11 @@ function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');
 $('copy-doc').addEventListener('click',()=>{if(selectedMarkdown)copyText(selectedMarkdown,'Документ скопирован');else toast('У этого ресурса нет загруженного текста')});
 $('copy-prompt').addEventListener('click',()=>{if(!selected)return;const url=selected.external?selected.url:'https://github.com/'+OWNER+'/'+REPO+'/blob/'+BRANCH+'/'+selected.path;const prompt='Прочитай документ: '+url+'\nЕдиный центр документации: https://ai.pqnet.ru/docontext/\nРегламент внешней разработки: https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROCESS.md\nСверяй описание с актуальным кодом и тестами в main. Отличай документированные правила от подтверждённой реализации. Не заявляй о проверках, которые фактически не выполнялись. Пользователь является каналом взаимодействия между DeepSeek и ChatGPT.';copyText(prompt,'Инструкция для ИИ скопирована')});
 $('copy-index').addEventListener('click',()=>{const lines=docs.filter(d=>!d.external).map(d=>'- '+d.title+': https://github.com/'+OWNER+'/'+REPO+'/blob/'+BRANCH+'/'+d.path);const prompt='Единый центр документации PQlocalAgentOS v3: https://ai.pqnet.ru/docontext/\nРепозиторий: https://github.com/'+OWNER+'/'+REPO+' (ветка main).\nСначала прочитай PROCESS.md, PROJECT_CONTEXT.md и docs/AGENT_WORKFLOW_MAP.md. Затем выбери релевантные документы из каталога ниже. Сверяй утверждения с кодом и тестами; отмечай неподтверждённое.\n\nКАТАЛОГ ДОКУМЕНТОВ:\n'+lines.join('\n');copyText(prompt,'Индекс документации скопирован для ИИ')});
-$('theme-toggle').addEventListener('click',()=>{const root=document.documentElement;root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('pqnet-theme',root.dataset.theme)}catch(_){}});
-try{document.documentElement.dataset.theme=localStorage.getItem('pqnet-theme')||'light'}catch(_){}
+const themeRoot=document.documentElement, sun=$('icon-sun'), moon=$('icon-moon');
+function applyTheme(theme){themeRoot.dataset.theme=theme;sun.style.display=theme==='light'?'none':'block';moon.style.display=theme==='light'?'block':'none';try{localStorage.setItem('pqnet-theme',theme)}catch(_){}}
+let savedTheme='light';try{savedTheme=localStorage.getItem('pqnet-theme')||'light'}catch(_){}
+applyTheme(savedTheme);
+$('theme-toggle').addEventListener('click',()=>applyTheme(themeRoot.dataset.theme==='dark'?'light':'dark'));
 loadDocs();
 })();
 </script>
