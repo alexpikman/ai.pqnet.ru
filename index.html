@@ -822,6 +822,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
   }
   function renderProcessMarkdown(markdown) {
     const lines = String(markdown || '').replace(/\r/g,'').split('\n');
+    const contextMode = String(markdown || '').includes('# Единый технический контекст проекта PQlocalAgentOS v3');
     const blocks = [];
     const sections = [];
     let paragraph = [], list = [], listType = '', code = [], inCode = false, codeLang = '';
@@ -846,8 +847,8 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
         flushAll();
         const level = heading[1].length, rawTitle = heading[2];
         const section = rawTitle.match(/^(\d+)\.\s+(.+)$/);
-        if (level === 2 && section) {
-          const n = Number(section[1]), id = 'process-section-' + n, title = section[2];
+        if (((contextMode && level === 3) || (!contextMode && level === 2)) && section) {
+          const n = Number(section[1]), id = (contextMode ? 'context-section-' : 'process-section-') + n, title = section[2];
           const icon = '<span class="process-section-icon">' + processIcon(n - 1) + '</span>';
           sections.push({ n, id, title });
           blocks.push('<h2 id="' + id + '">' + icon + '<span>' + inlineMarkdown(title) + '</span></h2>');
@@ -879,7 +880,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
       paragraph.push(line.trim());
     }
     flushAll();
-    const toc = '<nav class="process-toc" aria-label="Разделы регламента">' + sections.map(s => '<a href="#' + s.id + '"><span class="process-section-icon">' + processIcon(s.n - 1) + '</span><span>' + escapeHtml(s.title) + '</span></a>').join('') + '</nav>';
+    const toc = '<nav class="process-toc" aria-label="Разделы документа">' + sections.map(s => '<a href="#' + s.id + '"><span class="process-section-icon">' + processIcon(s.n - 1) + '</span><span>' + escapeHtml(s.title) + '</span></a>').join('') + '</nav>';
     return '<div class="process-document">' + toc + blocks.join('\n') + '</div>';
   }
 
@@ -896,8 +897,9 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
       if (content) {
         content.innerHTML = '<p style="font-size:12px;color:var(--muted)">Загрузка документа…</p>';
         try {
-          if (path === 'PROCESS.md') {
-            const res = await fetch('https://raw.githubusercontent.com/alexpikman/PQlocalAgentOSv3/main/PROCESS.md', { cache: 'no-store' });
+          if (path === 'PROCESS.md' || path === 'PROJECT_CONTEXT.md') {
+            const docUrl = 'https://raw.githubusercontent.com/alexpikman/PQlocalAgentOSv3/main/' + path;
+            const res = await fetch(docUrl, { cache: 'no-store' });
             if (!res.ok) throw new Error('HTTP ' + res.status);
             content.innerHTML = renderProcessMarkdown(await res.text());
           } else {
@@ -910,7 +912,10 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
             content.innerHTML = result.html;
           }
         } catch(_) {
-          content.innerHTML = '<p style="font-size:12px;color:var(--muted)">Не удалось загрузить документ. <a href="https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROCESS.md" target="_blank" rel="noopener noreferrer">Открыть PROCESS.md в GitHub</a>.</p>';
+          const fallbackUrl = path === 'PROJECT_CONTEXT.md'
+            ? 'https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROJECT_CONTEXT.md'
+            : 'https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROCESS.md';
+          content.innerHTML = '<p style="font-size:12px;color:var(--muted)">Не удалось загрузить документ. <a href="' + fallbackUrl + '" target="_blank" rel="noopener noreferrer">Открыть документ в GitHub</a>.</p>';
         }
       }
     });
@@ -920,10 +925,13 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
       const active = tree ? tree.querySelector('.docs-item.is-active') : null;
       const path = active ? active.dataset.path : 'docs/ai-context/README.md';
       const processUrl = 'https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROCESS.md';
+      const contextUrl = 'https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROJECT_CONTEXT.md';
+      const selectedUrl = path === 'PROCESS.md' ? processUrl : path === 'PROJECT_CONTEXT.md' ? contextUrl : 'https://ai.pqnet.ru/api/landing/doc?path=' + encodeURIComponent(path);
       const prompt = [
-        path === 'PROCESS.md' ? 'Прочитай регламент разработки: ' + processUrl : 'Прочитай https://ai.pqnet.ru/api/landing/doc?path=' + encodeURIComponent(path),
-        'и ' + processUrl + ' для правил взаимодействия с DeepSeek и ChatGPT.',
-        'Схема работы: я формулирую идею, ты подготавливаешь точный промпт для изменения кода в GitHub, затем я проверяю результат в браузере.'
+        'Прочитай выбранный документ: ' + selectedUrl,
+        'Также используй ' + processUrl + ' как регламент взаимодействия и отчётности.',
+        path === 'PROJECT_CONTEXT.md' ? 'Сверяй технические сведения с актуальным кодом в main; документ задаёт стартовый контекст, но не заменяет изучение исходников.' : 'Сверяй описание с актуальным кодом и не заявляй о проверках без фактического выполнения.',
+        'Пользователь — единственный канал обмена между DeepSeek и ChatGPT.'
       ].join('\\n');
       try {
         await navigator.clipboard.writeText(prompt);
@@ -961,9 +969,13 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
     const valid = items.filter(item => item && typeof item.path === 'string' && item.path);
     /* Регламент разработки хранится в корне основного репозитория и показывается отдельно от docs_tree API. */
     if (!valid.some(item => item.path === 'PROCESS.md')) {
-      valid.unshift({
-        path: 'PROCESS.md',
-        title: 'Регламент совместной разработки'
+      valid.unshift({ path: 'PROCESS.md', title: 'Регламент совместной разработки' });
+    }
+    if (!valid.some(item => item.path === 'PROJECT_CONTEXT.md')) {
+      const processIndex = valid.findIndex(item => item.path === 'PROCESS.md');
+      valid.splice(processIndex >= 0 ? processIndex + 1 : 0, 0, {
+        path: 'PROJECT_CONTEXT.md',
+        title: 'Единый технический контекст'
       });
     }
     if (!valid.length) {
@@ -978,7 +990,9 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
       const icon = document.createElement('span'); icon.className = 'docs-item-icon';
       icon.innerHTML = item.path === 'PROCESS.md'
         ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></svg>'
-        : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>';
+        : item.path === 'PROJECT_CONTEXT.md'
+          ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 4.5v17M8 6h8M8 10h8M8 14h6"/></svg>'
+          : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>';
       const copy = document.createElement('span'); copy.className = 'docs-item-copy';
       const strong = document.createElement('strong'); strong.textContent = item.title || basename(item.path);
       const small = document.createElement('small'); small.textContent = basename(item.path);
