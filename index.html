@@ -166,6 +166,31 @@ li{margin:5px 0}
 .docs-item.is-active{background:var(--accent-soft);border-color:var(--accent);color:var(--text)}
 .docs-item strong{display:block;font-size:12px;font-weight:600}
 .docs-item small{display:block;font:10px var(--mono);color:var(--muted);margin-top:1px}
+.docs-item-icon{display:inline-flex;width:30px;height:30px;flex:0 0 30px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--accent)}
+.docs-item-icon svg,.process-section-icon svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.docs-item-inner{display:flex;align-items:center;gap:10px}
+.docs-item-copy{display:block;min-width:0}
+.docs-item-copy strong,.docs-item-copy small{overflow-wrap:anywhere}
+.process-document{font-size:13px;line-height:1.75}
+.process-toc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 22px;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--panel2)}
+.process-toc a{display:flex;align-items:center;gap:9px;min-width:0;padding:9px;border:1px solid transparent;border-radius:8px;color:var(--text);text-decoration:none;font-size:12px;font-weight:600;line-height:1.35}
+.process-toc a:hover{border-color:var(--accent);background:var(--accent-soft)}
+.process-section-icon{display:inline-flex;width:34px;height:34px;flex:0 0 34px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:9px;background:var(--panel);color:var(--accent)}
+.process-document h1{font-size:22px;line-height:1.3;margin:0 0 14px}
+.process-document h2{display:flex;align-items:center;gap:11px;margin:28px 0 12px;padding-top:16px;border-top:1px solid var(--line);font-size:17px;line-height:1.4;color:var(--text);scroll-margin-top:90px}
+.process-document h3{margin:18px 0 8px;font-size:14px}
+.process-document p{margin:0 0 12px;color:var(--text);font-size:13px}
+.process-document ul,.process-document ol{margin:0 0 14px;padding-left:22px}
+.process-document li{margin:4px 0;padding-left:3px}
+.process-document table{display:block;width:100%;margin:12px 0 18px;overflow-x:auto;border-collapse:collapse;font-size:12px}
+.process-document th,.process-document td{padding:9px 10px;border:1px solid var(--line);text-align:left;vertical-align:top;min-width:110px}
+.process-document th{background:var(--panel2);font-weight:700}
+.process-document blockquote{margin:12px 0;padding:10px 14px;border-left:3px solid var(--accent);background:var(--panel2);color:var(--muted)}
+.process-document pre{max-width:100%;overflow:auto;margin:12px 0 18px;padding:14px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);font:11px/1.6 var(--mono);white-space:pre}
+.process-document code{padding:2px 4px;border-radius:4px;background:var(--panel2);font:11px var(--mono);overflow-wrap:anywhere}
+.process-document pre code{padding:0;background:transparent}
+.process-document a{overflow-wrap:anywhere}
+@media(max-width:560px){.process-toc{grid-template-columns:1fr}.process-document h2{align-items:flex-start;font-size:15px}.process-section-icon{width:30px;height:30px;flex-basis:30px}}
 .docs-content{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .docs-content-header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 15px;border-bottom:1px solid var(--line);background:var(--panel2);flex-wrap:wrap}
 .docs-file-heading strong{display:block;font-size:13px;color:var(--text)}
@@ -768,16 +793,96 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
     toast.textContent = msg; toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 2200);
   }
-  function renderMarkdown(text){
-    const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    return esc(text)
-      .replace(/^### (.*)$/gm, '<h3 style="font-size:13px;font-weight:700;margin:14px 0 4px">$1</h3>')
-      .replace(/^## (.*)$/gm, '<h2 style="font-size:15px;font-weight:700;margin:16px 0 6px">$1</h2>')
-      .replace(/^# (.*)$/gm, '<h1 style="font-size:19px;font-weight:700;margin:0 0 10px">$1</h1>')
-      .replace(/^> (.*)$/gm, '<blockquote>$1</blockquote>')
-      .replace(/`([^`]+)`/g, '<code>$1</code>')
-      .replace(/\n\n/g, '</p><p style="font-size:13px">');
+  const processIcons = [
+    '<circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1"/><path d="M16 11a3 3 0 0 0 0-6"/><path d="M18 14a5 5 0 0 1 3 5v1"/>',
+    '<circle cx="6" cy="5" r="2"/><circle cx="18" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 5h5a3 3 0 0 1 3 3v8a3 3 0 0 0 2 3"/><path d="M16 5h0"/>',
+    '<rect x="3" y="4" width="7" height="5" rx="1"/><rect x="14" y="15" width="7" height="5" rx="1"/><path d="M6.5 9v4a3 3 0 0 0 3 3H14"/><path d="m11 13 3 3-3 3"/>',
+    '<path d="M8 4H5a2 2 0 0 0-2 2v14h18V6a2 2 0 0 0-2-2h-3"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m8 13 2.5 2.5L16 10"/>',
+    '<path d="M4 7V3m0 0h4M4 3l5 5"/><path d="M20 17v4m0 0h-4m4 0-5-5"/><path d="M6 13a6 6 0 0 0 10 3M18 11A6 6 0 0 0 8 8"/>',
+    '<circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/>',
+    '<path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/>',
+    '<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/>',
+    '<circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M8 6h8M7.5 7.5l3.5 8M16.5 7.5 13 15.5"/>',
+    '<path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 4.5v17M8 6h8M8 10h8"/>'
+  ];
+  function processIcon(index) {
+    const paths = processIcons[index] || processIcons[0];
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0" stroke="none"/>' + paths + '</svg>';
   }
+  function escapeHtml(value) {
+    return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+  function inlineMarkdown(value) {
+    let out = escapeHtml(value);
+    out = out.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    out = out.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    out = out.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    out = out.replace(/`([^`]+)`/g, '<code>$1</code>');
+    return out;
+  }
+  function renderProcessMarkdown(markdown) {
+    const lines = String(markdown || '').replace(/\r/g,'').split('\n');
+    const blocks = [];
+    const sections = [];
+    let paragraph = [], list = [], listType = '', code = [], inCode = false, codeLang = '';
+    const flushParagraph = () => { if (paragraph.length) { blocks.push('<p>' + inlineMarkdown(paragraph.join(' ')) + '</p>'); paragraph = []; } };
+    const flushList = () => { if (list.length) { blocks.push('<' + listType + '>' + list.map(item => '<li>' + inlineMarkdown(item) + '</li>').join('') + '</' + listType + '>'); list = []; listType = ''; } };
+    const flushAll = () => { flushParagraph(); flushList(); };
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      if (line.startsWith('```')) {
+        flushAll();
+        if (!inCode) { inCode = true; codeLang = line.slice(3).trim(); code = []; }
+        else {
+          const lang = escapeHtml(codeLang);
+          blocks.push('<pre><code' + (lang ? ' class="language-' + lang + '"' : '') + '>' + escapeHtml(code.join('\n')) + '</code></pre>');
+          inCode = false; code = []; codeLang = '';
+        }
+        continue;
+      }
+      if (inCode) { code.push(line); continue; }
+      const heading = line.match(/^(#{1,3})\s+(.+)$/);
+      if (heading) {
+        flushAll();
+        const level = heading[1].length, rawTitle = heading[2];
+        const section = rawTitle.match(/^(\d+)\.\s+(.+)$/);
+        if (level === 2 && section) {
+          const n = Number(section[1]), id = 'process-section-' + n, title = section[2];
+          const icon = '<span class="process-section-icon">' + processIcon(n - 1) + '</span>';
+          sections.push({ n, id, title });
+          blocks.push('<h2 id="' + id + '">' + icon + '<span>' + inlineMarkdown(title) + '</span></h2>');
+        } else if (level === 1) blocks.push('<h1>' + inlineMarkdown(rawTitle) + '</h1>');
+        else blocks.push('<h' + level + '>' + inlineMarkdown(rawTitle) + '</h' + level + '>');
+        continue;
+      }
+      if (!line.trim()) { flushAll(); continue; }
+      if (line.startsWith('|') && i + 1 < lines.length && /^\|?\s*:?-{3,}/.test(lines[i + 1])) {
+        flushAll();
+        const tableLines = [line]; i++;
+        while (i + 1 < lines.length && lines[i + 1].trim().startsWith('|')) tableLines.push(lines[++i]);
+        const cells = row => row.trim().replace(/^\|/,'').replace(/\|$/,'').split('|').map(v => v.trim());
+        const header = cells(tableLines[0]);
+        const bodyRows = tableLines.slice(2).map(cells);
+        blocks.push('<table><thead><tr>' + header.map(v => '<th>' + inlineMarkdown(v) + '</th>').join('') + '</tr></thead><tbody>' + bodyRows.map(row => '<tr>' + header.map((_,j) => '<td>' + inlineMarkdown(row[j] || '') + '</td>').join('') + '</tr>').join('') + '</tbody></table>');
+        continue;
+      }
+      if (line.startsWith('> ')) { flushAll(); blocks.push('<blockquote>' + inlineMarkdown(line.slice(2)) + '</blockquote>'); continue; }
+      const ul = line.match(/^\s*[-*]\s+(.+)$/);
+      const ol = line.match(/^\s*\d+\.\s+(.+)$/);
+      if (ul || ol) {
+        flushParagraph();
+        const type = ul ? 'ul' : 'ol';
+        if (list.length && listType !== type) flushList();
+        listType = type; list.push((ul || ol)[1]); continue;
+      }
+      if (/^---+$/.test(line.trim())) { flushAll(); blocks.push('<hr>'); continue; }
+      paragraph.push(line.trim());
+    }
+    flushAll();
+    const toc = '<nav class="process-toc" aria-label="Разделы регламента">' + sections.map(s => '<a href="#' + s.id + '"><span class="process-section-icon">' + processIcon(s.n - 1) + '</span><span>' + escapeHtml(s.title) + '</span></a>').join('') + '</nav>';
+    return '<div class="process-document">' + toc + blocks.join('\n') + '</div>';
+  }
+
   if (tree) {
     tree.addEventListener('click', async (e) => {
       const btn = e.target.closest('.docs-item');
@@ -791,15 +896,21 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
       if (content) {
         content.innerHTML = '<p style="font-size:12px;color:var(--muted)">Загрузка документа…</p>';
         try {
-          const res = await fetch('/api/landing/doc?path=' + encodeURIComponent(path), {
-            headers: { Accept: 'application/json' }, cache: 'no-store'
-          });
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          const result = await res.json();
-          if (typeof result.html !== 'string') throw new Error('Document payload is invalid');
-          content.innerHTML = result.html;
+          if (path === 'PROCESS.md') {
+            const res = await fetch('https://raw.githubusercontent.com/alexpikman/PQlocalAgentOSv3/main/PROCESS.md', { cache: 'no-store' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            content.innerHTML = renderProcessMarkdown(await res.text());
+          } else {
+            const res = await fetch('/api/landing/doc?path=' + encodeURIComponent(path), {
+              headers: { Accept: 'application/json' }, cache: 'no-store'
+            });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const result = await res.json();
+            if (typeof result.html !== 'string') throw new Error('Document payload is invalid');
+            content.innerHTML = result.html;
+          }
         } catch(_) {
-          content.innerHTML = '<p style="font-size:12px;color:var(--muted)">Не удалось загрузить документ из GitHub. Откройте файл напрямую в репозитории.</p>';
+          content.innerHTML = '<p style="font-size:12px;color:var(--muted)">Не удалось загрузить документ. <a href="https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROCESS.md" target="_blank" rel="noopener noreferrer">Открыть PROCESS.md в GitHub</a>.</p>';
         }
       }
     });
@@ -808,9 +919,10 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
     copyBtn.addEventListener('click', async () => {
       const active = tree ? tree.querySelector('.docs-item.is-active') : null;
       const path = active ? active.dataset.path : 'docs/ai-context/README.md';
+      const processUrl = 'https://github.com/alexpikman/PQlocalAgentOSv3/blob/main/PROCESS.md';
       const prompt = [
-        'Прочитай https://ai.pqnet.ru/api/landing/doc?path=' + path,
-        'и https://ai.pqnet.ru/api/landing/doc?path=docs/ai-context/README.md.',
+        path === 'PROCESS.md' ? 'Прочитай регламент разработки: ' + processUrl : 'Прочитай https://ai.pqnet.ru/api/landing/doc?path=' + encodeURIComponent(path),
+        'и ' + processUrl + ' для правил взаимодействия с DeepSeek и ChatGPT.',
         'Схема работы: я формулирую идею, ты подготавливаешь точный промпт для изменения кода в GitHub, затем я проверяю результат в браузере.'
       ].join('\\n');
       try {
@@ -862,9 +974,15 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
       const button = document.createElement('button');
       button.type = 'button'; button.className = 'docs-item' + (index === 0 ? ' is-active' : '');
       button.dataset.path = item.path;
+      const inner = document.createElement('span'); inner.className = 'docs-item-inner';
+      const icon = document.createElement('span'); icon.className = 'docs-item-icon';
+      icon.innerHTML = item.path === 'PROCESS.md'
+        ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></svg>'
+        : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>';
+      const copy = document.createElement('span'); copy.className = 'docs-item-copy';
       const strong = document.createElement('strong'); strong.textContent = item.title || basename(item.path);
       const small = document.createElement('small'); small.textContent = basename(item.path);
-      button.append(strong, small); tree.appendChild(button);
+      copy.append(strong, small); inner.append(icon, copy); button.append(inner); tree.appendChild(button);
     });
     set('docs-count', valid.length);
     const first = tree.querySelector('.docs-item');
