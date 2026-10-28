@@ -147,6 +147,7 @@ main {
   text-decoration: none;
 }
 .doc-list { display: grid; gap: 3px; }
+.docs-placeholder { color: var(--muted); font-size: 12px; }
 .doc-list .doc-item { cursor: pointer; }
 .doc-list .doc-item strong { display: block; font-size: 12px; font-weight: 600; }
 .doc-list .doc-item small { display: block; margin-top: 1px; color: var(--muted); font: 10px var(--mono); }
