@@ -156,3 +156,20 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Shared typography and component sizing. */
+body { font-size: 14px; line-height: 1.7; }
+.hero h1 { font-size: clamp(30px, 4vw, 46px); line-height: 1.14; letter-spacing: -.04em; font-weight: 750; margin: 10px 0 14px; }
+section > h2 { font-size: clamp(23px, 2.6vw, 30px); line-height: 1.25; font-weight: 700; letter-spacing: -.03em; margin: 10px 0 14px; }
+section > h3 { font-size: 16px; line-height: 1.4; font-weight: 650; }
+.card, .stat, .metric-card, .docs-sidebar, .docs-content, .viewer {
+  border-radius: 12px;
+}
+.card, .stat, .metric-card { padding: 16px; }
+.theme-toggle #icon-moon { display: none; }
+.u-mt-lg { margin-top: 20px !important; }
+.u-mt-md { margin-top: 16px !important; }
+.u-mt-0 { margin-top: 0 !important; }
+.u-small-note { margin-top: 10px; font-size: 11px; }
+.u-small-text { font-size: 11px; }
+.mono-link { font: 10px var(--site-mono); }
