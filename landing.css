@@ -557,3 +557,54 @@ a { transition: color .18s ease, background .18s ease, border-color .18s ease; }
 @media (prefers-reduced-motion: reduce) {
     .feature-card:hover, .metric-card:hover, .tech-card:hover { transform: none; }
 }
+
+
+/* Documentation panel: synchronized columns and one full-height information scroller. */
+#docs .docs-panel {
+    align-items: stretch;
+}
+#docs .docs-sidebar {
+    min-height: 0;
+    height: 600px;
+    max-height: 72vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+#docs .docs-content {
+    display: flex;
+    min-height: 0;
+    height: 600px;
+    max-height: 72vh;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+#docs .docs-content-header {
+    flex: 0 0 auto;
+}
+#docs .docs-rendered-content {
+    flex: 0 0 auto;
+    overflow: visible;
+}
+@media (max-width: 960px) {
+    #docs .docs-sidebar {
+        height: auto;
+        max-height: 260px;
+    }
+    #docs .docs-content {
+        height: 600px;
+        max-height: 72vh;
+    }
+}
+@media (max-width: 600px) {
+    #docs .docs-sidebar {
+        max-height: 220px;
+    }
+    #docs .docs-content {
+        height: 68vh;
+        max-height: 68vh;
+        min-height: 420px;
+    }
+}
