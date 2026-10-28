@@ -91,24 +91,7 @@
                 <article class="metric-card"><span class="metric-label">Обновление проекта</span><strong class="metric-value" id="metric-updated">—</strong><span class="metric-caption">Последняя активность</span></article>
             </div>
         </section>
-        <section class="section" id="changelog">
-            <div class="container">
-                <div class="section-heading">
-                    <div><div class="section-kicker">GIT CHANGELOG</div><h2>История разработки</h2></div>
-                    <p>Последние изменения репозитория, полученные из changelog.json; при его отсутствии список обновляется напрямую из GitHub.</p>
-                </div>
-                <div class="overflow-hidden rounded-3xl border border-white/80 bg-white/85 shadow-xl shadow-slate-200/60 backdrop-blur-md">
-                    <div class="flex items-center justify-between border-b border-slate-200/80 px-5 py-4 sm:px-6">
-                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Последние коммиты</div>
-                        <a class="font-mono text-xs text-sky-700 hover:text-indigo-700" href="https://github.com/alexpikman/PQlocalAgentOSv3/commits/main" target="_blank" rel="noopener noreferrer">Открыть GitHub ↗</a>
-                    </div>
-                    <div id="changelog-list" class="divide-y divide-slate-100" aria-live="polite">
-                        <div class="px-5 py-5 text-sm text-slate-500 sm:px-6">Загрузка истории коммитов…</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="py-16 bg-white border-y border-slate-200/70" id="overview">
+<section class="py-16 bg-white border-y border-slate-200/70" id="overview">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-14">
       <span class="text-xs font-bold text-sky-600 uppercase tracking-widest">Ключевые преимущества</span>
@@ -143,8 +126,7 @@
     </div>
   </div>
 </section>
-
-        <section class="py-16 bg-slate-50" id="uniqueness">
+<section class="py-16 bg-slate-50" id="uniqueness">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto mb-12">
       <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Уникальность решения</span>
@@ -168,8 +150,24 @@
     <p class="text-[11px] text-slate-500 text-center font-mono">Важное отличие: при работе с локальной моделью запрос остается на устройстве; облачные модели обрабатываются по правилам провайдера.</p>
   </div>
 </section>
-
-        <section class="section" id="features">
+<section class="py-16 bg-white border-t border-slate-200" id="architecture">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-xs font-bold text-sky-600 uppercase tracking-widest">Модульная система</span>
+      <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Архитектура и встроенный инструментарий</h2>
+      <p class="mt-3 text-slate-600 text-sm">Все необходимое для эффективной работы локальных мультиагентных систем.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Модуль 1 -->
+      <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-sky-300 transition-all"><div class="w-10 h-10 rounded-lg bg-sky-500 text-white flex items-center justify-center mb-4 shadow-md shadow-sky-500/20"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3 class="font-bold text-slate-900 text-base mb-2">Verification Gate</h3><p class="text-slate-600 text-xs leading-relaxed">Позволяет оператору одобрять или корректировать критические действия агентов до их выполнения в операционной системе.</p></div>
+      <!-- Модуль 2 -->
+      <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-indigo-300 transition-all"><div class="w-10 h-10 rounded-lg bg-indigo-500 text-white flex items-center justify-center mb-4 shadow-md shadow-indigo-500/20"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg></div><h3 class="font-bold text-slate-900 text-base mb-2">Контекст-Менеджер</h3><p class="text-slate-600 text-xs leading-relaxed">Автоматическая обрезка и изолирование контекста диалога между агентами для предотвращения переполнения токенов.</p></div>
+      <!-- Модуль 3 -->
+      <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-teal-300 transition-all"><div class="w-10 h-10 rounded-lg bg-teal-500 text-white flex items-center justify-center mb-4 shadow-md shadow-teal-500/20"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg></div><h3 class="font-bold text-slate-900 text-base mb-2">Горячая смена моделей</h3><p class="text-slate-600 text-xs leading-relaxed">Переключение между локальными моделями налету без перезапуска рабочей сессии и сброса накопленного контекста.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="features">
             <div class="container">
                 <div class="section-heading">
                     <div><div class="section-kicker">ВОЗМОЖНОСТИ</div><h2>Что работает сейчас</h2></div>
@@ -187,25 +185,7 @@
                 </div>
             </div>
         </section>
-        <section class="py-16 bg-white border-t border-slate-200" id="architecture">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-14">
-      <span class="text-xs font-bold text-sky-600 uppercase tracking-widest">Модульная система</span>
-      <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Архитектура и встроенный инструментарий</h2>
-      <p class="mt-3 text-slate-600 text-sm">Все необходимое для эффективной работы локальных мультиагентных систем.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Модуль 1 -->
-      <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-sky-300 transition-all"><div class="w-10 h-10 rounded-lg bg-sky-500 text-white flex items-center justify-center mb-4 shadow-md shadow-sky-500/20"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3 class="font-bold text-slate-900 text-base mb-2">Verification Gate</h3><p class="text-slate-600 text-xs leading-relaxed">Позволяет оператору одобрять или корректировать критические действия агентов до их выполнения в операционной системе.</p></div>
-      <!-- Модуль 2 -->
-      <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-indigo-300 transition-all"><div class="w-10 h-10 rounded-lg bg-indigo-500 text-white flex items-center justify-center mb-4 shadow-md shadow-indigo-500/20"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg></div><h3 class="font-bold text-slate-900 text-base mb-2">Контекст-Менеджер</h3><p class="text-slate-600 text-xs leading-relaxed">Автоматическая обрезка и изолирование контекста диалога между агентами для предотвращения переполнения токенов.</p></div>
-      <!-- Модуль 3 -->
-      <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:border-teal-300 transition-all"><div class="w-10 h-10 rounded-lg bg-teal-500 text-white flex items-center justify-center mb-4 shadow-md shadow-teal-500/20"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg></div><h3 class="font-bold text-slate-900 text-base mb-2">Горячая смена моделей</h3><p class="text-slate-600 text-xs leading-relaxed">Переключение между локальными моделями налету без перезапуска рабочей сессии и сброса накопленного контекста.</p></div>
-    </div>
-  </div>
-</section>
-
-        <section class="section section-muted" id="roadmap">
+<section class="section section-muted" id="roadmap">
             <div class="container roadmap-layout">
                 <div class="section-heading roadmap-heading">
                     <div><div class="section-kicker">ROADMAP</div><h2>В разработке</h2></div>
@@ -219,7 +199,7 @@
                 </div>
             </div>
         </section>
-        <section class="section" id="docs">
+<section class="section" id="docs">
             <div class="container">
                 <div class="section-heading docs-heading">
                     <div><div class="section-kicker">AI-READY DOCUMENTATION</div><h2>Документация для ИИ</h2></div>
@@ -241,13 +221,42 @@
                 <p class="docs-footnote">Документация загружается из публичного GitHub-репозитория через серверный прокси.</p>
             </div>
         </section>
-        <section class="section section-muted" id="technology">
+<section class="section section-muted" id="technology">
             <div class="container">
                 <div class="section-heading">
                     <div><div class="section-kicker">TECH STACK</div><h2>Технологии</h2></div>
                     <p>Основные технологии проекта. Список уточняется на основе данных репозитория.</p>
                 </div>
                 <div class="tech-grid" id="tech-stack"><div class="tech-placeholder">Загрузка стека технологий…</div></div>
+            </div>
+        </section>
+
+        
+        
+
+        
+
+        
+        
+
+        
+        
+        
+<section class="section" id="changelog">
+            <div class="container">
+                <div class="section-heading">
+                    <div><div class="section-kicker">GIT CHANGELOG</div><h2>История разработки</h2></div>
+                    <p>Последние изменения репозитория, полученные из changelog.json; при его отсутствии список обновляется напрямую из GitHub.</p>
+                </div>
+                <div class="overflow-hidden rounded-3xl border border-white/80 bg-white/85 shadow-xl shadow-slate-200/60 backdrop-blur-md">
+                    <div class="flex items-center justify-between border-b border-slate-200/80 px-5 py-4 sm:px-6">
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Последние коммиты</div>
+                        <a class="font-mono text-xs text-sky-700 hover:text-indigo-700" href="https://github.com/alexpikman/PQlocalAgentOSv3/commits/main" target="_blank" rel="noopener noreferrer">Открыть GitHub ↗</a>
+                    </div>
+                    <div id="changelog-list" class="divide-y divide-slate-100" aria-live="polite">
+                        <div class="px-5 py-5 text-sm text-slate-500 sm:px-6">Загрузка истории коммитов…</div>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="closing-cta">
