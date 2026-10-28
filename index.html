@@ -6,7 +6,16 @@
     <meta name="theme-color" content="#f8fafc">
     <meta name="description" content="PQlocalAgentOS v3 — локальная платформа для мультиагентных AI-воркфлоу. Открытая архитектура, локальные модели, контроль действий и развитие open source.">
     <title>PQlocalAgentOS v3 — локальная автономная платформа для AI-агентов</title>
-    <link rel="stylesheet" href="/landing.css?v=10">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+        tailwind = { config: { corePlugins: { preflight: false }, theme: { extend: {
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'], mono: ['JetBrains Mono', 'ui-monospace', 'monospace'] },
+            colors: { pq: { ink: '#0f172a', sky: '#0ea5e9', indigo: '#4f46e5' } }
+        } } } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/landing.css?v=11">
     <script src="/landing.js?v=8" defer></script>
 </head>
 <body>
@@ -45,6 +54,12 @@
                         <a class="button button-ghost" href="#docs">Документация для ИИ <span aria-hidden="true">→</span></a>
                     </div>
                     <div class="hero-note">Python · Vanilla JavaScript · Локальные и облачные модели</div>
+                    <div class="mt-5 flex flex-wrap gap-2" aria-label="Технологический стек">
+                        <span class="inline-flex items-center rounded-full border border-sky-200/80 bg-white/80 px-3 py-1 font-mono text-xs font-medium text-sky-800 shadow-sm backdrop-blur-md">FastAPI</span>
+                        <span class="inline-flex items-center rounded-full border border-indigo-200/80 bg-white/80 px-3 py-1 font-mono text-xs font-medium text-indigo-800 shadow-sm backdrop-blur-md">WebSockets</span>
+                        <span class="inline-flex items-center rounded-full border border-emerald-200/80 bg-white/80 px-3 py-1 font-mono text-xs font-medium text-emerald-800 shadow-sm backdrop-blur-md">Ollama</span>
+                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-white/80 px-3 py-1 font-mono text-xs font-medium text-slate-700 shadow-sm backdrop-blur-md">Windows Native</span>
+                    </div>
                 </div>
                 
                 <!-- ПРАВАЯ КОЛОНКА -->
@@ -84,6 +99,23 @@
                 <article class="metric-card"><span class="metric-label">Последний коммит</span><strong class="metric-value" id="metric-commit">—</strong><span class="metric-caption">Из GitHub API</span></article>
                 <article class="metric-card"><span class="metric-label">Тесты и проверки</span><strong class="metric-value" id="metric-tests">—</strong><span class="metric-caption">По данным репозитория</span></article>
                 <article class="metric-card"><span class="metric-label">Обновление проекта</span><strong class="metric-value" id="metric-updated">—</strong><span class="metric-caption">Последняя активность</span></article>
+            </div>
+        </section>
+        <section class="section" id="changelog">
+            <div class="container">
+                <div class="section-heading">
+                    <div><div class="section-kicker">GIT CHANGELOG</div><h2>История разработки</h2></div>
+                    <p>Последние изменения репозитория, полученные из changelog.json; при его отсутствии список обновляется напрямую из GitHub.</p>
+                </div>
+                <div class="overflow-hidden rounded-3xl border border-white/80 bg-white/85 shadow-xl shadow-slate-200/60 backdrop-blur-md">
+                    <div class="flex items-center justify-between border-b border-slate-200/80 px-5 py-4 sm:px-6">
+                        <div class="flex items-center gap-2 text-sm font-semibold text-slate-800"><span class="h-2 w-2 rounded-full bg-emerald-500"></span>Последние коммиты</div>
+                        <a class="font-mono text-xs text-sky-700 hover:text-indigo-700" href="https://github.com/alexpikman/PQlocalAgentOSv3/commits/main" target="_blank" rel="noopener noreferrer">Открыть GitHub ↗</a>
+                    </div>
+                    <div id="changelog-list" class="divide-y divide-slate-100" aria-live="polite">
+                        <div class="px-5 py-5 text-sm text-slate-500 sm:px-6">Загрузка истории коммитов…</div>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="section" id="overview">
@@ -207,5 +239,80 @@
         </div>
     </footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+    (() => {
+        const target = document.getElementById('changelog-list');
+        if (!target) return;
+        const escDate = value => {
+            const date = new Date(value);
+            return Number.isNaN(date.getTime()) ? 'Дата не указана' :
+                new Intl.DateTimeFormat('ru-RU', { day: '2-digit', month: 'short', year: 'numeric' }).format(date);
+        };
+        const row = item => {
+            const wrap = document.createElement('article');
+            wrap.className = 'flex flex-col gap-2 px-5 py-4 transition-colors hover:bg-sky-50/60 sm:flex-row sm:items-center sm:justify-between sm:px-6';
+            const details = document.createElement('div');
+            details.className = 'min-w-0';
+            const title = document.createElement('p');
+            title.className = 'text-sm font-semibold text-slate-800';
+            title.textContent = String(item.message || item.title || 'Обновление без описания').split('\\n')[0];
+            const meta = document.createElement('p');
+            meta.className = 'mt-1 flex flex-wrap items-center gap-2 font-mono text-xs text-slate-500';
+            const hash = document.createElement('span');
+            hash.className = 'rounded-md bg-slate-100 px-2 py-1 text-sky-800';
+            hash.textContent = String(item.sha || item.hash || '').slice(0, 7) || 'commit';
+            const date = document.createElement('span');
+            date.textContent = escDate(item.date || item.created_at);
+            meta.append(hash, date);
+            details.append(title, meta);
+            wrap.append(details);
+            if (item.url || item.html_url) {
+                const link = document.createElement('a');
+                link.className = 'shrink-0 text-xs font-semibold text-indigo-600 hover:text-sky-700';
+                link.href = item.url || item.html_url;
+                link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = 'Посмотреть ↗';
+                wrap.append(link);
+            }
+            return wrap;
+        };
+        async function load() {
+            try {
+                let entries = null;
+                try {
+                    const local = await fetch('/changelog.json', { headers: { Accept: 'application/json' }, cache: 'no-store' });
+                    if (local.ok) {
+                        const payload = await local.json();
+                        entries = Array.isArray(payload) ? payload : (Array.isArray(payload.commits) ? payload.commits : null);
+                    }
+                } catch (_) {}
+                if (!entries) {
+                    const response = await fetch('https://api.github.com/repos/alexpikman/PQlocalAgentOSv3/commits?per_page=6', {
+                        headers: { Accept: 'application/vnd.github+json' }, cache: 'no-store'
+                    });
+                    if (!response.ok) throw new Error('GitHub API ' + response.status);
+                    const commits = await response.json();
+                    entries = commits.map(commit => ({
+                        sha: commit.sha,
+                        message: commit.commit && commit.commit.message,
+                        date: commit.commit && commit.commit.author && commit.commit.author.date,
+                        url: commit.html_url
+                    }));
+                }
+                target.replaceChildren();
+                if (!entries.length) throw new Error('Empty changelog');
+                entries.slice(0, 6).forEach(item => target.appendChild(row(item)));
+            } catch (_) {
+                target.replaceChildren();
+                const message = document.createElement('p');
+                message.className = 'px-5 py-5 text-sm text-slate-500 sm:px-6';
+                message.textContent = 'История коммитов временно недоступна. Откройте репозиторий на GitHub, чтобы посмотреть изменения.';
+                target.appendChild(message);
+            }
+        }
+        load();
+    })();
+    </script>
+
 </body>
 </html>
