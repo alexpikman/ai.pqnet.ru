@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Связь и GitHub — PQlocalAgentOS v3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-primary: #f8fafc; --bg-card: #ffffff; --text-main: #0f172a; --text-muted: #475569; --accent: #0284c7; --accent-glow: rgba(2, 132, 199, 0.1); --border: #e2e8f0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
+        header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 0 22px; position: sticky; top: 0; z-index: 100; }
+        .header-inner { width: min(100% - 44px, 1280px); min-height: 72px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+        .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px; color: var(--text-main); display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo svg { width: 24px; height: 24px; fill: var(--accent); }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; font-weight: 500; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+        .container { width: min(100% - 44px, 1280px); margin: 32px auto 48px; padding: 0; flex: 1; }
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        h1 { font-size: 28px; margin-bottom: 16px; }
+        p { color: var(--text-muted); margin-bottom: 20px; font-size: 15px; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; background: var(--text-main); color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .btn:hover { background: var(--accent); }
+        footer { border-top: 1px solid var(--border); background: var(--bg-card); font-size: 13px; color: var(--text-muted); margin-top: auto; }
+        .footer-inner { max-width: 1280px; margin: 0 auto; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .footer-inner p { margin: 0; font-size: inherit; color: inherit; }
+        @media (max-width: 760px) { .header-inner { padding: 12px 0; align-items: flex-start; flex-direction: column; gap: 10px; } .nav-links { gap: 8px 14px; } .container { width: min(100% - 32px, 1280px); margin-top: 20px; } .card { padding: 22px; } .footer-inner { padding: 16px; } h1 { font-size: clamp(22px, 6vw, 28px); } }
+    </style>
+</head>
+<body>
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            PQlocalAgentOS v3
+        </a>
+        <nav class="nav-links">
+            <a href="/">Главная</a>
+            <a href="/github.html" class="active">Связь & GitHub</a>
+            <a href="/docs.html">Инструкции для ИИ</a>
+            <a href="/docontext/">Документация</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h1>Репозиторий и исходный код</h1>
+            <p>Весь код проекта, история коммитов и актуальная разработка ведутся в официальном репозитории на GitHub.</p>
+            <a href="https://github.com/alexpikman/PQlocalAgentOSv3" class="btn" target="_blank">Открыть GitHub Репозиторий</a>
+        </div>
+        <div class="card">
+            <h1>Контакты автора</h1>
+            <p>Автор проекта: <strong>Алекс Пикью (Пикман Александр Аркадьевич)</strong><br>Сайт экосистемы: <a href="https://pqnet.ru" style="color:var(--accent);">pqnet.ru</a></p>
+        </div>
+    </div>
+    <footer><div class="footer-inner"><p>© 2026 Алекс Пикью · pqnet.ru</p><p><a href="/">Главная</a> · <a href="/docontext/">Документация</a></p></div></footer>
+</body>
+</html>
