@@ -847,6 +847,13 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
     if (!tree || !Array.isArray(items)) return;
     tree.replaceChildren();
     const valid = items.filter(item => item && typeof item.path === 'string' && item.path);
+    /* Регламент разработки хранится в корне основного репозитория и показывается отдельно от docs_tree API. */
+    if (!valid.some(item => item.path === 'PROCESS.md')) {
+      valid.unshift({
+        path: 'PROCESS.md',
+        title: 'Регламент совместной разработки'
+      });
+    }
     if (!valid.length) {
       const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Документация пока недоступна.';
       tree.appendChild(p); set('docs-count', '0'); return;
