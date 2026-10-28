@@ -22,7 +22,7 @@ button { color: inherit; cursor: pointer; }
 a { color: var(--accent); text-decoration: none; transition: color 160ms ease; }
 a:hover { color: var(--accent-violet); }
 img, svg { display: block; max-width: 100%; }
-.container { width: min(100% - 48px, 1200px); margin-inline: auto; }
+.container { width: min(100% - 48px, 1280px); margin-inline: auto; }
 .site-header { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); }
 .header-inner { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: inline-flex; min-width: 0; align-items: center; gap: 12px; color: var(--text); }
@@ -381,7 +381,7 @@ body {
 }
 body, button, input, textarea, select { font-family: var(--font); }
 a { transition: color .18s ease, background .18s ease, border-color .18s ease; }
-.container { width: min(100% - 48px, 1200px); }
+.container { width: min(100% - 48px, 1280px); }
 .site-header {
     background: rgba(255,255,255,.82);
     border-bottom-color: rgba(226,232,240,.86);
@@ -552,7 +552,7 @@ a { transition: color .18s ease, background .18s ease, border-color .18s ease; }
     /* Keep a consistent gutter on narrow screens so content never touches the viewport edge. */
     .container {
         width: calc(100% - 24px);
-        max-width: 1200px;
+        max-width: 1280px;
     }
     body {
         overflow-x: clip;
@@ -625,7 +625,7 @@ a { transition: color .18s ease, background .18s ease, border-color .18s ease; }
 @media (max-width: 600px) {
     .container {
         width: 100%;
-        max-width: 1200px;
+        max-width: 1280px;
         padding-inline: 12px;
     }
     .site-header .header-inner {
