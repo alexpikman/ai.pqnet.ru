@@ -73,22 +73,8 @@
                         </div>
                     </div>
                     
-                    <!-- ВЫНЕСЕННЫЕ КАРТОЧКИ -->
-                    <div class="floating-card floating-card-top">
-                        <span class="floating-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"/></svg></span>
-                        <span><strong>AI Agents</strong><small>Модульная архитектура</small></span>
-                    </div>
-                    <div class="floating-card floating-card-bottom">
-                        <span class="floating-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span>
-                        <span><strong>Local-first</strong><small>Контроль над данными</small></span>
-                    </div>
                 </div>
                 
-            </div>
-            <div class="container metrics-grid">
-                <article class="metric-card"><span class="metric-label">Последний коммит</span><strong class="metric-value" id="metric-commit">—</strong><span class="metric-caption">Из GitHub API</span></article>
-                <article class="metric-card"><span class="metric-label">Тесты и проверки</span><strong class="metric-value" id="metric-tests">—</strong><span class="metric-caption">По данным репозитория</span></article>
-                <article class="metric-card"><span class="metric-label">Обновление проекта</span><strong class="metric-value" id="metric-updated">—</strong><span class="metric-caption">Последняя активность</span></article>
             </div>
         </section>
 <section class="py-16 bg-white border-y border-slate-200/70" id="overview">
@@ -132,6 +118,16 @@
       <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Уникальность решения</span>
       <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Не просто чат с моделью</h2>
       <p class="mt-3 text-slate-600 text-sm">Управляемая работа агентов с открытым кодом и свободой выбора провайдеров.</p>
+    </div>
+    <div class="uniqueness-highlights" aria-label="Ключевые особенности">
+      <article class="floating-card floating-card-top">
+        <span class="floating-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"/></svg></span>
+        <span><strong>AI Agents</strong><small>Модульная архитектура</small></span>
+      </article>
+      <article class="floating-card floating-card-bottom">
+        <span class="floating-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span>
+        <span><strong>Local-first</strong><small>Контроль над данными</small></span>
+      </article>
     </div>
     <!-- Адаптивная таблица сравнения -->
     <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm mb-6">
@@ -247,6 +243,11 @@
                 <div class="section-heading">
                     <div><div class="section-kicker">GIT CHANGELOG</div><h2>История разработки</h2></div>
                     <p>Последние изменения репозитория, полученные из changelog.json; при его отсутствии список обновляется напрямую из GitHub.</p>
+                </div>
+                <div class="container metrics-grid changelog-metrics">
+                    <article class="metric-card"><span class="metric-label">Последний коммит</span><strong class="metric-value" id="metric-commit">—</strong><span class="metric-caption">Из GitHub API</span></article>
+                    <article class="metric-card"><span class="metric-label">Тесты и проверки</span><strong class="metric-value" id="metric-tests">—</strong><span class="metric-caption">По данным репозитория</span></article>
+                    <article class="metric-card"><span class="metric-label">Обновление проекта</span><strong class="metric-value" id="metric-updated">—</strong><span class="metric-caption">Последняя активность</span></article>
                 </div>
                 <div class="overflow-hidden rounded-3xl border border-white/80 bg-white/85 shadow-xl shadow-slate-200/60 backdrop-blur-md">
                     <div class="flex items-center justify-between border-b border-slate-200/80 px-5 py-4 sm:px-6">
