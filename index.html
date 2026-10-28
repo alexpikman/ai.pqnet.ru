@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#f8fafc">
-    <meta name="description" content="PQlocalAgentOSv3 — локальная AI-платформа с агентами, моделями и инструментами разработки. Открытая разработка Build in Public.">
-    <title>PQlocalAgentOSv3 — локальная AI-платформа</title>
+    <meta name="description" content="PQlocalAgentOS v3 — локальная платформа для мультиагентных AI-воркфлоу. Открытая архитектура, локальные модели, контроль действий и развитие open source.">
+    <title>PQlocalAgentOS v3 — локальная автономная платформа для AI-агентов</title>
     <link rel="stylesheet" href="/landing.css?v=8">
     <script src="/landing.js?v=8" defer></script>
 </head>
@@ -17,8 +17,10 @@
                 <span class="brand-name">PQlocalAgentOS<span>v3</span></span>
             </a>
             <nav class="header-nav" aria-label="Основная навигация">
+                <a href="#overview">Обзор</a>
+                <a href="#uniqueness">Уникальность</a>
                 <a href="#features">Возможности</a>
-                <a href="#roadmap">Разработка</a>
+                <a href="#roadmap">Перспективы</a>
                 <a href="#docs">Документация</a>
                 <a class="button button-small button-outline" href="https://github.com/alexpikman/PQlocalAgentOSv3" target="_blank" rel="noopener noreferrer">GitHub</a>
             </nav>
@@ -29,8 +31,8 @@
             <div class="container hero-inner">
                 <div class="hero-copy">
                     <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Открытая разработка · Build in Public</div>
-                    <h1>Локальная AI-платформа <span class="gradient-text">для реальной работы</span></h1>
-                    <p class="hero-description">PQlocalAgentOSv3 объединяет AI-агентов, языковые модели, проекты и инструменты разработки в едином рабочем пространстве. Локальный запуск, контроль над данными и открытый исходный код.</p>
+                    <h1>Локальная автономная ОС <span class="gradient-text">для мультиагентных AI-воркфлоу</span></h1>
+                    <p class="hero-description">PQlocalAgentOS v3 объединяет AI-агентов, языковые модели, проекты и инструменты разработки в едином рабочем пространстве. Локальные модели помогают сохранять контроль над данными; облачные провайдеры остаются опциональными. Открытый исходный код и управляемое выполнение задач.</p>
                     <div class="hero-actions">
                         <a class="button button-primary" href="https://github.com/alexpikman/PQlocalAgentOSv3" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.51c.48.09.65-.21.65-.46v-1.8c-2.65.58-3.21-1.13-3.21-1.13-.44-1.1-1.08-1.4-1.08-1.4-.89-.61.07-.6.07-.6.98.07 1.5 1 1.5 1 .88 1.5 2.3 1.07 2.86.82.09-.64.35-1.07.62-1.32-2.12-.24-4.35-1.06-4.35-4.72 0-1.04.37-1.89.98-2.56-.1-.24-.43-1.21.09-2.52 0 0 .8-.26 2.61.98a9.08 9.08 0 0 1 4.75 0c1.81-1.24 2.61-.98 2.61-.98.52 1.31.19 2.28.09 2.52.61.67.98 1.52.98 2.56 0 3.67-2.23 4.48-4.36 4.71.36.31.67.9.67 1.82v2.62c0 .25.17.55.66.46A9.5 9.5 0 0 0 12 2.5Z"/></svg>
@@ -82,6 +84,37 @@
                 <article class="metric-card"><span class="metric-label">Последний коммит</span><strong class="metric-value" id="metric-commit">—</strong><span class="metric-caption">Из GitHub API</span></article>
                 <article class="metric-card"><span class="metric-label">Тесты и проверки</span><strong class="metric-value" id="metric-tests">—</strong><span class="metric-caption">По данным репозитория</span></article>
                 <article class="metric-card"><span class="metric-label">Обновление проекта</span><strong class="metric-value" id="metric-updated">—</strong><span class="metric-caption">Последняя активность</span></article>
+            </div>
+        </section>
+        <section class="section" id="overview">
+            <div class="container">
+                <div class="section-heading">
+                    <div><div class="section-kicker">КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА</div><h2>Контроль над AI — на вашей стороне</h2></div>
+                    <p>Единое рабочее пространство для локальных моделей, специализированных агентов и технических задач. Вы выбираете провайдера, инструменты и уровень разрешений.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true">01</span><h3>Local-first и приватность</h3><p>Подключайте локальные модели через Ollama и LM Studio. При использовании облачных провайдеров передаваемые данные зависят от выбранного сервиса.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true">02</span><h3>Мультиагентная работа</h3><p>Разделяйте сложные задачи между агентами с разными ролями, инструкциями и моделями, сохраняя общий рабочий контекст проекта.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true">03</span><h3>Человек контролирует действия</h3><p>Механизмы разрешений и подтверждения критических операций помогают удерживать выполнение задач в заданных границах.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true">04</span><h3>Своя инфраструктура</h3><p>Запускайте платформу на собственной Windows-машине и подключайте подходящие локальные или облачные модели без привязки к одному поставщику.</p></article>
+                </div>
+            </div>
+        </section>
+        <section class="section section-muted" id="uniqueness">
+            <div class="container">
+                <div class="section-heading">
+                    <div><div class="section-kicker">УНИКАЛЬНОСТЬ</div><h2>Не просто чат с моделью</h2></div>
+                    <p>PQlocalAgentOS v3 ориентирован на управляемую работу агентов с проектами, задачами и инструментами — с открытым кодом и возможностью выбирать модели.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card"><h3>Одна среда вместо разрозненных инструментов</h3><p>Проекты, задачи, память, агенты, модели и системная информация доступны в общей рабочей среде.</p></article>
+                    <article class="feature-card"><h3>Модель не привязана к роли</h3><p>Архитектура рассчитана на выбор провайдера и модели под конкретную задачу, в том числе локальных моделей.</p></article>
+                    <article class="feature-card"><h3>Контроль исполнения</h3><p>Разрешения и подтверждение критических действий позволяют сочетать автоматизацию с контролем оператора.</p></article>
+                    <article class="feature-card"><h3>Открытая и проверяемая разработка</h3><p>Код и изменения доступны в GitHub. Текущее состояние проекта можно проверять по репозиторию, а не по рекламным обещаниям.</p></article>
+                </div>
+                <div class="comparison-note">
+                    <strong>Важное отличие:</strong> это не обещание «100% приватности» при любых настройках. При работе с локальной моделью запрос может оставаться на вашем устройстве; облачная модель обрабатывает данные по правилам своего провайдера.
+                </div>
             </div>
         </section>
         <section class="section" id="features">
