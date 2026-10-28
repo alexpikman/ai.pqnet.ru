@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script>
-        tailwind = { config: { corePlugins: { preflight: false }, theme: { extend: {
+        tailwind = window.tailwind || {};
+        tailwind.config = { corePlugins: { preflight: false }, theme: { extend: {
             fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'], mono: ['JetBrains Mono', 'ui-monospace', 'monospace'] },
             colors: { pq: { ink: '#0f172a', sky: '#0ea5e9', indigo: '#4f46e5' } }
-        } } } };
+        } } };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/landing.css?v=11">
