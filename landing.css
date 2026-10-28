@@ -348,3 +348,211 @@ img, svg { display: block; max-width: 100%; }
 .comparison-table tbody td:nth-child(2) { background: rgba(224, 242, 254, 0.34); color: var(--text); }
 .comparison-table tbody tr:last-child th, .comparison-table tbody tr:last-child td { border-bottom: 0; }
 
+
+
+/* Visual theme adapted from the supplied PQlocalAgentOS v3 reference.
+   Presentation only: existing HTML structure, API hooks and interactions remain intact. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --bg: #f8fafc;
+    --panel: rgba(255,255,255,0.88);
+    --panel2: #f1f5f9;
+    --line: #e2e8f0;
+    --text: #0f172a;
+    --muted: #475569;
+    --accent: #0284c7;
+    --accent-soft: #f0f9ff;
+    --accent-violet: #6366f1;
+    --success: #10b981;
+    --radius: 16px;
+    --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+html { background: var(--bg); }
+body {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(99,102,241,.075), transparent 42%),
+      radial-gradient(ellipse at 8% 20%, rgba(14,165,233,.055), transparent 34%),
+      var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    letter-spacing: -0.01em;
+}
+body, button, input, textarea, select { font-family: var(--font); }
+a { transition: color .18s ease, background .18s ease, border-color .18s ease; }
+.container { width: min(100% - 48px, 1200px); }
+.site-header {
+    background: rgba(255,255,255,.82);
+    border-bottom-color: rgba(226,232,240,.86);
+    box-shadow: 0 2px 16px rgba(15,23,42,.025);
+    backdrop-filter: blur(16px);
+}
+.header-inner { min-height: 72px; }
+.brand-mark {
+    width: 40px; height: 40px; border-radius: 12px;
+    border: 0; color: white;
+    background: linear-gradient(135deg,#0ea5e9,#4f46e5);
+    box-shadow: 0 5px 16px rgba(14,165,233,.2);
+}
+.brand-name { letter-spacing: -.55px; }
+.header-nav { gap: clamp(12px, 2vw, 26px); }
+.header-nav > a:not(.button) { font-size: 13px; font-weight: 600; }
+.button {
+    min-height: 44px; padding: 11px 18px; border-radius: 12px;
+    font-weight: 650; letter-spacing: -.01em;
+    transition: transform .22s cubic-bezier(.16,1,.3,1), box-shadow .22s ease, background .18s ease, border-color .18s ease;
+}
+.button-primary {
+    border-color: transparent;
+    background: linear-gradient(110deg,#0284c7,#4f46e5);
+    box-shadow: 0 8px 22px rgba(2,132,199,.2);
+}
+.button-primary:hover {
+    border-color: transparent;
+    background: linear-gradient(110deg,#0369a1,#4338ca);
+    box-shadow: 0 11px 26px rgba(79,70,229,.22);
+}
+.button-secondary, .button-outline {
+    background: rgba(255,255,255,.92);
+    border-color: var(--line);
+    box-shadow: 0 2px 5px rgba(15,23,42,.025);
+}
+.button-secondary:hover, .button-outline:hover {
+    border-color: rgba(14,165,233,.45);
+    background: #f0f9ff;
+}
+.hero { padding-block: 76px 64px; }
+.hero-inner { gap: 44px; }
+.eyebrow, .section-kicker {
+    color: #0369a1;
+    letter-spacing: 1.35px;
+}
+.eyebrow::before { display: none; }
+.eyebrow {
+    padding: 7px 12px; border: 1px solid #bae6fd;
+    border-radius: 999px; background: rgba(240,249,255,.9);
+    letter-spacing: .5px; text-transform: none;
+}
+.hero h1 {
+    font-size: clamp(38px,5.1vw,62px);
+    letter-spacing: -2.5px; line-height: 1.08;
+}
+.gradient-text {
+    background-image: linear-gradient(100deg,#0284c7 0%,#4f46e5 55%,#0ea5e9 100%);
+}
+.hero-description { font-size: 17px; line-height: 1.8; }
+.hero-note { font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+.terminal-window {
+    border-color: rgba(226,232,240,.95);
+    border-radius: 18px;
+    background: rgba(255,255,255,.9);
+    box-shadow: 0 22px 65px rgba(15,23,42,.09), 0 3px 12px rgba(15,23,42,.035);
+    backdrop-filter: blur(12px);
+}
+.terminal-topbar { background: rgba(241,245,249,.92); min-height: 50px; }
+.terminal-title, .terminal-content { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.terminal-content { font-size: 12px; }
+.floating-card, .hero-visual-wrap .floating-card {
+    border-color: rgba(226,232,240,.92);
+    border-radius: 15px;
+    background: rgba(255,255,255,.92);
+    box-shadow: 0 14px 34px rgba(15,23,42,.10);
+    backdrop-filter: blur(14px);
+}
+.floating-card-icon, .hero-visual-wrap .floating-card-icon {
+    border-radius: 10px;
+    background: linear-gradient(135deg,#e0f2fe,#eef2ff);
+    color: #0369a1;
+}
+.metrics-grid { gap: 16px; margin-top: 40px; }
+.metric-card, .feature-card, .tech-card, .docs-panel, .closing-cta {
+    border-color: rgba(226,232,240,.95);
+    border-radius: 17px;
+    background: rgba(255,255,255,.88);
+    box-shadow: 0 5px 22px rgba(15,23,42,.035), 0 1px 3px rgba(15,23,42,.025);
+}
+.metric-card { padding: 23px 24px; transition: transform .22s ease, box-shadow .22s ease; }
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(14,165,233,.075);
+}
+.metric-label, .metric-caption { letter-spacing: .01em; }
+.metric-value { color: #0369a1; }
+.section { padding-block: 78px; }
+.section-muted {
+    border-block-color: rgba(226,232,240,.85);
+    background: rgba(241,245,249,.72);
+}
+.section-heading { margin-bottom: 36px; }
+.section-heading h2, .closing-cta h2 {
+    letter-spacing: -1.35px;
+    line-height: 1.18;
+}
+.section-heading p { line-height: 1.8; }
+.section-kicker { font-size: 11px; }
+.feature-grid { gap: 18px; }
+.feature-card {
+    padding: 25px;
+    transition: transform .28s cubic-bezier(.16,1,.3,1), box-shadow .28s ease, border-color .2s ease;
+}
+.feature-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(14,165,233,.35);
+    box-shadow: 0 14px 32px rgba(14,165,233,.075), 0 4px 12px rgba(15,23,42,.025);
+}
+.feature-icon {
+    width: 46px; height: 46px; border-radius: 13px;
+    border-color: #dbeafe;
+    background: linear-gradient(135deg,#f0f9ff,#eef2ff);
+    color: #0369a1;
+}
+.feature-card h3 { letter-spacing: -.35px; line-height: 1.35; }
+.feature-card p { font-size: 13px; line-height: 1.8; }
+.roadmap-item { padding-block: 24px; }
+.roadmap-marker { border-color: #dbeafe; }
+.roadmap-status { padding: 6px 10px; background: rgba(255,255,255,.8); }
+.docs-panel { overflow: hidden; }
+.docs-sidebar { background: rgba(241,245,249,.82); }
+.docs-item { border-radius: 10px; }
+.docs-item.is-active { border-color: #bae6fd; box-shadow: 0 3px 10px rgba(15,23,42,.035); }
+.docs-content { background: rgba(255,255,255,.72); }
+.docs-rendered-content code, .docs-rendered-content pre {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+.tech-card { transition: transform .22s ease, border-color .2s ease, box-shadow .22s ease; }
+.tech-card:hover { transform: translateY(-2px); border-color: rgba(14,165,233,.35); }
+.comparison-table-wrap {
+    border-color: rgba(226,232,240,.95);
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(15,23,42,.045);
+}
+.comparison-table thead th { background: rgba(241,245,249,.9); }
+.comparison-table thead th:nth-child(2) { color: #0369a1; background: rgba(240,249,255,.95); }
+.comparison-table tbody td:nth-child(2) { background: rgba(224,242,254,.28); }
+.comparison-note {
+    border-color: #bae6fd; border-radius: 15px;
+    background: rgba(240,249,255,.82);
+}
+.closing-cta {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(circle at 90% 0%,rgba(14,165,233,.11),transparent 36%),
+      radial-gradient(circle at 0% 100%,rgba(99,102,241,.09),transparent 35%),
+      rgba(255,255,255,.9);
+}
+.site-footer { border-top-color: rgba(226,232,240,.9); }
+.toast { border-radius: 13px; backdrop-filter: blur(12px); }
+:focus-visible { outline: 3px solid rgba(14,165,233,.45); outline-offset: 3px; }
+@media (max-width: 960px) {
+    .hero { padding-block: 58px 52px; }
+    .section { padding-block: 62px; }
+}
+@media (max-width: 600px) {
+    .container { width: min(100% - 32px, 1200px); }
+    .hero h1 { letter-spacing: -1.65px; }
+    .section-heading { gap: 12px; }
+    .feature-card, .metric-card { padding: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .feature-card:hover, .metric-card:hover, .tech-card:hover { transform: none; }
+}
