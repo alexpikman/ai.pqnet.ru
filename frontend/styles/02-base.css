@@ -1,0 +1,26 @@
+/* Reset, typography and global utilities. */
+*{box-sizing:border-box}
+
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font,Inter,'Segoe UI',sans-serif);font-size:var(--font-size,14px)}
+
+button,input,textarea,select{font:inherit}
+
+h1{font-size:27px;line-height:1.2;letter-spacing:-1px;margin:0;font-weight:700}
+
+h2{font-size:20px;margin:0;letter-spacing:-.5px}
+
+p{color:var(--muted);line-height:1.6}
+
+
+input,textarea,select{color:var(--text);background:var(--panel);border-color:var(--line)}
+input::placeholder,textarea::placeholder{color:var(--muted)}
+
+/* Тонкий скроллбар: Firefox */
+*{scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+
+/* Тонкий скроллбар: Chrome, Edge, Safari */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:transparent;margin:4px 0}
+::-webkit-scrollbar-thumb{background:rgba(146,146,168,0);border-radius:10px;border:1px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:rgba(146,146,168,.6);background-clip:padding-box}
+

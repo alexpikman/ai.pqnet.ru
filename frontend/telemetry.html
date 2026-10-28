@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/icons/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#101018">
+<title>System Telemetry · PQlocalAgentOSv3</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1017;--panel:#151a24;--panel2:#1b2230;--line:#2a3445;--text:#edf2fb;--muted:#9aa8bc;--accent:#63b3ff;--green:#58d6a2;--yellow:#f2c66d;--red:#ff7d89;font:14px/1.5 Inter,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}header{position:sticky;top:0;z-index:2;background:#0d1017ed;border-bottom:1px solid var(--line);backdrop-filter:blur(16px);padding:18px clamp(16px,3vw,36px);display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{display:flex;gap:12px;align-items:center}.mark{width:42px;height:42px;display:grid;place-items:center;border:1px solid #345779;border-radius:12px;color:var(--accent);font-weight:800;letter-spacing:-1px}.eyebrow{font-size:11px;color:var(--accent);letter-spacing:.14em;text-transform:uppercase}.title{font-size:20px;font-weight:700}.sub{color:var(--muted);font-size:12px}.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}button{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:9px;padding:9px 12px;font:inherit;cursor:pointer}button:hover{border-color:var(--accent)}.status{color:var(--muted);font-size:12px}.status:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px}.status.error:before{background:var(--red)}main{max-width:1600px;margin:auto;padding:24px clamp(16px,3vw,36px) 48px}.intro{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:20px;flex-wrap:wrap}.intro h1{font-size:25px;margin:0 0 5px}.intro p{margin:0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}.card h2{font-size:14px;margin:0 0 14px;display:flex;justify-content:space-between;gap:8px}.card h2 small{font-size:11px;color:var(--muted);font-weight:400}.wide{grid-column:span 2}.full{grid-column:1/-1}.metric{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:9px 0;border-bottom:1px solid #252d3a}.metric:last-child{border-bottom:0}.key{color:var(--muted);overflow-wrap:anywhere}.value{text-align:right;overflow-wrap:anywhere;max-width:100%;font-variant-numeric:tabular-nums}.value.null{color:#647187}.bar{height:5px;border-radius:9px;background:#293242;overflow:hidden;grid-column:1/-1}.bar span{display:block;height:100%;background:var(--accent);border-radius:9px}.pill{border:1px solid var(--line);border-radius:99px;padding:2px 7px;color:var(--muted);font-size:11px}.pill.ok{color:var(--green);border-color:#285a4c}.pill.no{color:var(--yellow);border-color:#67542b}.items{display:grid;gap:10px}.item{border:1px solid var(--line);border-radius:10px;padding:12px;background:#111620;min-width:0}.item-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:600;margin-bottom:6px}.item-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.mini{background:#1a202c;border-radius:8px;padding:8px;min-width:0}.mini b{display:block;overflow-wrap:anywhere;font-size:13px}.mini span{font-size:11px;color:var(--muted)}.view-tabs{display:flex;gap:8px;align-items:center;margin:0 0 16px;flex-wrap:wrap}.view-tabs button.active{border-color:var(--accent);color:var(--accent);background:#1b2a3c}.api-panel{display:none}.api-panel.active{display:block}.dashboard-panel.hidden{display:none}.api-endpoints{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.api-endpoint{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:14px;min-width:0}.api-endpoint code{display:block;overflow-wrap:anywhere;color:var(--accent);margin:6px 0}.api-endpoint p{color:var(--muted);font-size:12px}.api-tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.api-url{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.api-url input{min-width:260px;flex:1;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:10px;font:inherit}.param-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 14px}.param-group{border:1px solid var(--line);border-radius:10px;padding:10px;margin:8px 0;background:#111620}.param-group>summary{display:flex;justify-content:space-between;gap:8px}.metric .bar span{transition:width .25s ease}.metric[data-kind="warning"] .value{color:var(--yellow)}.metric[data-kind="ok"] .value{color:var(--green)}.metric[data-kind="bad"] .value{color:var(--red)}.visual-note{color:var(--muted);font-size:11px;margin-top:5px;overflow-wrap:anywhere}@media(max-width:900px){.api-endpoints{grid-template-columns:1fr}.param-grid{grid-template-columns:1fr}}details{margin-top:20px;border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:13px}summary{cursor:pointer;font-weight:600}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:600px;overflow:auto;font:12px/1.55 ui-monospace,Consolas,monospace;color:#c6d6eb}footer{color:var(--muted);font-size:12px;margin-top:18px}@media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wide{grid-column:span 2}}@media(max-width:650px){.grid{grid-template-columns:1fr}.wide,.full{grid-column:auto}.item-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.title{font-size:17px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="mark">PQ</div><div><div class="eyebrow">LOCAL SYSTEM INSPECTOR</div><div class="title">Полная телеметрия системы</div><div class="sub">Отдельная диагностическая страница · расширенная телеметрия · не включена в меню</div></div></div>
+  <div class="actions"><span id="status" class="status">Подключение…</span><button id="viewToggle">API интерфейс</button><button id="refresh">Обновить</button><button id="copy">Копировать JSON</button></div>
+</header>
+<main>
+  <div class="intro"><div><h1>Снимок состояния компьютера</h1><p>Данные поступают из локального API <code>/api/system/stats</code>. Недоступные значения не подменяются.</p></div><div class="sub">Последнее обновление: <b id="updated">—</b></div></div>
+  <div class="view-tabs"><button id="dashboardTab" class="active">Визуальная телеметрия</button><button id="apiTab">API и передача данных</button></div>
+  <section id="dashboardPanel" class="dashboard-panel"><div id="grid" class="grid"><section class="card full">Загрузка телеметрии…</section></div></section>
+  <section id="apiPanel" class="api-panel">
+    <div class="card full">
+      <h2>API телеметрии · отдельный интерфейс передачи данных</h2>
+      <p class="sub">Все параметры доступны программно в JSON. API локальный, без отправки телеметрии на сторонние серверы. Пароли, токены и содержимое сообщений не собираются.</p>
+      <div class="api-url"><input id="apiBase" readonly value="/api/system/stats" aria-label="API endpoint"><button id="copyApiUrl">Копировать адрес</button><button id="downloadJson">Скачать JSON</button><button id="loadSchema">Загрузить схему</button><button id="loadHistory">Загрузить историю</button></div>
+    </div>
+    <div class="api-endpoints" style="margin-top:14px">
+      <div class="api-endpoint"><b>Полный актуальный снимок</b><code>GET /api/system/stats</code><p>Все группы параметров: CPU, RAM, GPU, диски, сеть, Windows, процессы, AI runtime, доступность датчиков.</p><a href="/api/system/stats" target="_blank" rel="noopener">Открыть JSON</a></div>
+      <div class="api-endpoint"><b>Структура всех полей</b><code>GET /api/system/stats/schema</code><p>Описание структуры ответа, типы полей и схема вложенных объектов/массивов.</p><a href="/api/system/stats/schema" target="_blank" rel="noopener">Открыть схему</a></div>
+      <div class="api-endpoint"><b>История показателей</b><code>GET /api/system/stats/history?limit=60</code><p>До 360 последних образцов, собранных текущим процессом сервера. История сбрасывается при перезапуске.</p><a href="/api/system/stats/history?limit=60" target="_blank" rel="noopener">Открыть историю</a></div>
+    </div>
+    <div class="card full" style="margin-top:14px"><h2>Примеры подключения API</h2>
+      <p class="sub">Все примеры получают актуальный снимок. Адрес локальный и доступен в пределах запущенного сервера.</p>
+      <div class="api-endpoints">
+        <div class="api-endpoint"><b>JavaScript</b><pre>const response = await fetch('/api/system/stats');
+const telemetry = await response.json();
+console.log(telemetry.cpu, telemetry.gpu, telemetry.processes);</pre></div>
+        <div class="api-endpoint"><b>Python</b><pre>import urllib.request, json
+url = 'http://127.0.0.1:8765/api/system/stats'
+with urllib.request.urlopen(url, timeout=5) as r:
+    telemetry = json.load(r)
+print(telemetry['cpu'], telemetry['gpu'])</pre></div>
+        <div class="api-endpoint"><b>PowerShell</b><pre>$telemetry = Invoke-RestMethod 'http://127.0.0.1:8765/api/system/stats'
+$telemetry.cpu
+$telemetry.gpu
+$telemetry.unavailableParameters</pre></div>
+      </div>
+    </div>
+    <div class="card full" style="margin-top:14px"><h2 id="apiResponseTitle">JSON-ответ API</h2><p class="sub">Это тот же объект, который передаётся потребителям API. Обновляется автоматически вместе с телеметрией.</p><pre id="apiRaw">Ожидание данных…</pre></div>
+  </section>
+  <details><summary>Полный ответ API — быстрый просмотр</summary><p class="sub">Полный JSON для интеграции с другими модулями и приложениями.</p><pre id="raw">Ожидание данных…</pre></details>
+  <footer>Обновление автоматически каждые 5 секунд. Страница не добавлена в навигацию. Доступность расширенных показателей зависит от Windows, драйверов и установленного модуля psutil.</footer>
+</main>
+<script src="/auth.js"></script>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+let lastData=null, busy=false, apiMode='stats';
+const esc=value=>String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const fmt=(value,unit='')=>value===null||value===undefined||value===''?'—':(typeof value==='number'?new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(value):String(value))+unit;
+const bytes=value=>{if(value===null||value===undefined||!Number.isFinite(Number(value)))return '—';let n=Number(value),units=['Б','КБ','МБ','ГБ','ТБ'],i=0;while(n>=1024&&i<units.length-1){n/=1024;i++}return fmt(n)+' '+units[i]};
+function card(title,body,cls=''){return '<section class="card '+cls+'"><h2>'+esc(title)+'</h2>'+body+'</section>'}
+function metric(label,value,unit='',percent=null){let val=fmt(value,unit),bar=Number.isFinite(percent)?'<div class="bar"><span style="width:'+Math.max(0,Math.min(100,percent))+'%"></span></div>':'';return '<div class="metric"><span class="key">'+esc(label)+'</span><span class="value '+(value===null||value===undefined?'null':'')+'">'+esc(val)+'</span>'+bar+'</div>'}
+function pill(ok){return '<span class="pill '+(ok?'ok':'no')+'">'+(ok?'Доступно':'Недоступно')+'</span>'}
+function objectCard(title,obj,cls=''){if(!obj||typeof obj!=='object')return card(title,metric('Статус','Нет данных'),cls);let rows='';for(const [key,value] of Object.entries(obj)){if(key==='available'||value===null||value===undefined)continue;if(typeof value==='object'){rows+=metric(key,Array.isArray(value)?'['+value.length+' элементов]':'Вложенные данные');continue}rows+=metric(key,value)}return card(title,(obj.available===undefined?'':pill(obj.available))+rows,cls)}
+function itemList(title,items,mapper,cls='full'){const content=Array.isArray(items)&&items.length?'<div class="items">'+items.map(mapper).join('')+'</div>':metric('Элементы','Нет данных');return card(title,content,cls)}
+function mini(label,value){return '<div class="mini"><span>'+esc(label)+'</span><b>'+esc(value===null||value===undefined?'—':value)+'</b></div>'}
+
+function visualMetric(key,value){
+ if(value===null||value===undefined)return metric(key,'Недоступно');
+ if(typeof value==='boolean')return metric(key,value?'Да':'Нет');
+ if(typeof value==='number'){
+  const lower=String(key).toLowerCase();
+  let unit='',shown=value,bar=null;
+  if(/percent|utilization|usage|процент|загрузк/.test(lower)){unit='%';bar=value}
+  else if(/temperature|температур|_c$/.test(lower)){unit=' °C'}
+  else if(/mhz|frequency|clock/.test(lower)){unit=/mhz|frequency|clock/.test(lower)?' МГц':''}
+  else if(/power|watt/.test(lower)&&!/limit|reason/.test(lower)){unit=' Вт'}
+  else if(/mbps/.test(lower)){unit=' Мбит/с'}
+  else if(/bytespersec|bytes_per_sec/.test(lower)){shown=value/1048576;unit=' МБ/с'}
+  else if(/secondsleft|uptimeseconds|seconds/.test(lower)){unit=' с'}
+  else if(/latencyms|time_ms|_ms$/.test(lower)){unit=' мс'}
+  else if(/bytes$|bytes_|memorybytes|vramused|vramtotal/.test(lower)){return metric(key,bytes(value))}
+  return metric(key,shown,unit,bar);
+ }
+ if(typeof value==='string'&&(value.startsWith('http://')||value.startsWith('https://')))return '<div class="metric"><span class="key">'+esc(key)+'</span><span class="value"><a href="'+esc(value)+'" target="_blank" rel="noopener">'+esc(value)+'</a></span></div>';
+ return metric(key,value);
+}
+function deepBlock(label,value,depth=0){
+ if(value===null||value===undefined)return visualMetric(label,value);
+ if(Array.isArray(value)){
+  if(!value.length)return metric(label,'Пустой список');
+  const rows=value.map((item,i)=>'<div class="item"><div class="item-head"><span>'+esc(label)+' · '+(i+1)+'</span><span class="pill">'+esc(typeof item==='object'&&item?'Объект':'Значение')+'</span></div>'+deepContents(item,depth+1)+'</div>').join('');
+  return '<details class="param-group"><summary>'+esc(label)+' <span class="pill">'+value.length+' элементов</span></summary><div class="items" style="margin-top:10px">'+rows+'</div></details>';
+ }
+ if(typeof value==='object'){
+  return '<details class="param-group"><summary>'+esc(label)+' <span class="pill">'+Object.keys(value).length+' полей</span></summary><div class="param-grid" style="padding:8px 0">'+deepContents(value,depth+1)+'</div></details>';
+ }
+ return visualMetric(label,value);
+}
+function deepContents(obj,depth=0){
+ if(obj===null||obj===undefined)return visualMetric('Значение',obj);
+ if(typeof obj!=='object')return visualMetric('Значение',obj);
+ let out='';
+ for(const [key,value] of Object.entries(obj)){
+  if(value===null||value===undefined||typeof value!=='object')out+=visualMetric(key,value);
+  else out+=deepBlock(key,value,depth);
+ }
+ return out||metric('Данные','Нет данных');
+}
+
+function draw(data){
+ const cpu=data.cpu||{},ram=data.ram||{},gpu=data.gpu||{},system=data.system||{},os=system.os||{},net=data.network||{};
+ let cards='';
+ cards+=card('CPU',pill(cpu.available)+metric('Модель',cpu.name)+metric('Загрузка',fmt(cpu.percent,'%'),'',cpu.percent)+metric('Физические ядра',cpu.physicalCores)+metric('Логические потоки',cpu.logicalCores)+metric('Частота сейчас',fmt(cpu.frequency&&cpu.frequency.currentMHz,' МГц'))+metric('Частота мин./макс.',cpu.frequency?fmt(cpu.frequency.minMHz)+' / '+fmt(cpu.frequency.maxMHz)+' МГц':'—')+metric('Процессы / потоки',fmt(cpu.processCount)+' / '+fmt(cpu.threadCount)));
+ cards+=card('RAM и файл подкачки',pill(ram.available)+metric('Использовано',fmt(ram.percent,'%'),'',ram.percent)+metric('Занято',fmt(ram.used,' ГБ'))+metric('Всего',fmt(ram.total,' ГБ'))+metric('Доступно',fmt(ram.free,' ГБ'))+metric('Файл подкачки',ram.pagefile?fmt(ram.pagefile.used)+' / '+fmt(ram.pagefile.total)+' ГБ':'—'));
+ cards+=card('GPU',pill(gpu.available)+metric('Устройство',gpu.name)+metric('Загрузка',fmt(gpu.percent,'%'),'',gpu.percent)+metric('VRAM занято / всего',gpu.vramUsed===null?'—':fmt(gpu.vramUsed)+' / '+fmt(gpu.vramTotal)+' ГБ')+metric('Температура',fmt(gpu.temperatureC,' °C'))+metric('Потребление / лимит',gpu.powerW===null?'—':fmt(gpu.powerW)+' / '+fmt(gpu.powerLimitW)+' Вт')+metric('Частота ядра / памяти',gpu.coreClockMHz===null?'—':fmt(gpu.coreClockMHz)+' / '+fmt(gpu.memoryClockMHz)+' МГц')+metric('Вентилятор',fmt(gpu.fanPercent,'%')));
+ cards+=card('Операционная система',metric('Система',fmt(os.system)+' '+fmt(os.release))+metric('Редакция',os.edition)+metric('Архитектура',os.architecture)+metric('Версия сборки',os.version)+metric('Имя компьютера',os.hostname)+metric('Время работы',system.uptimeSeconds===null?'—':fmt(Math.floor(system.uptimeSeconds/86400))+' дн. '+fmt(Math.floor(system.uptimeSeconds%86400/3600))+' ч '+fmt(Math.floor(system.uptimeSeconds%3600/60))+' мин')+metric('Запуск системы',system.bootTime));
+ cards+=card('Среда выполнения',metric('Python',fmt(os.pythonVersion)+' · '+fmt(os.pythonImplementation))+metric('Платформа',fmt(os.machine))+metric('Общее число процессов',system.processCount)+metric('Потоки процессов',system.threadCount));
+ // Показываем только пять согласованных блоков: CPU, RAM, GPU, ОС и среда выполнения.
+ $('grid').innerHTML=cards;
+ $('raw').textContent=JSON.stringify(data,null,2);if($('apiRaw')&&apiMode==='stats')$('apiRaw').textContent=JSON.stringify(data,null,2);
+ $('updated').textContent=new Date().toLocaleTimeString('ru-RU');
+}
+async function refresh(){if(busy)return;busy=true;try{const response=await fetch('/api/system/stats',{cache:'no-store'});let payload;try{payload=await response.json()}catch(_){payload=null}if(!response.ok)throw new Error(payload&&payload.error?payload.error+' ('+(payload.errorType||response.status)+')':'HTTP '+response.status);if(!payload||payload.ok===false)throw new Error(payload&&payload.error?payload.error:'Ответ API имеет неверный формат');lastData=payload;draw(lastData);$('status').className='status';$('status').textContent='API подключён'}catch(error){$('status').className='status error';$('status').textContent='Ошибка API: '+error.message;if(!lastData)$('grid').innerHTML=card('Нет данных',metric('Причина',error.message),'full')}finally{busy=false}}
+function showView(api){
+ $('dashboardPanel').classList.toggle('hidden',api);
+ $('apiPanel').classList.toggle('active',api);
+ $('dashboardTab').classList.toggle('active',!api);
+ $('apiTab').classList.toggle('active',api);
+ $('viewToggle').textContent=api?'Визуальная телеметрия':'API интерфейс';
+}
+$('dashboardTab').addEventListener('click',()=>showView(false));
+$('apiTab').addEventListener('click',()=>{apiMode='stats';if(lastData)$('apiRaw').textContent=JSON.stringify(lastData,null,2);showView(true)});
+$('viewToggle').addEventListener('click',()=>showView(!$('apiPanel').classList.contains('active')));
+$('refresh').addEventListener('click',refresh);
+$('copy').addEventListener('click',async()=>{if(!lastData)return;try{await navigator.clipboard.writeText(JSON.stringify(lastData,null,2));$('copy').textContent='Скопировано';setTimeout(()=>$('copy').textContent='Копировать JSON',1300)}catch(e){$('raw').parentElement.open=true}});
+$('copyApiUrl').addEventListener('click',async()=>{const url=new URL('/api/system/stats',location.href).href;try{await navigator.clipboard.writeText(url);$('copyApiUrl').textContent='Скопировано';setTimeout(()=>$('copyApiUrl').textContent='Копировать адрес',1300)}catch(e){$('apiBase').value=url;$('apiBase').select()}});
+$('downloadJson').addEventListener('click',()=>{if(!lastData)return;const blob=new Blob([JSON.stringify(lastData,null,2)],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='pqlocal-telemetry-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';a.click();URL.revokeObjectURL(url)});
+$('loadSchema').addEventListener('click',async()=>{apiMode='schema';showView(true);$('apiResponseTitle').textContent='Схема API';$('apiRaw').textContent='Загрузка схемы…';try{const r=await fetch('/api/system/stats/schema',{cache:'no-store'});const d=await r.json();if(!r.ok)throw new Error(d.error||r.status);$('apiRaw').textContent=JSON.stringify(d,null,2)}catch(e){$('apiRaw').textContent='Ошибка схемы API: '+e.message}});
+$('loadHistory').addEventListener('click',async()=>{apiMode='history';showView(true);$('apiResponseTitle').textContent='История телеметрии';$('apiRaw').textContent='Загрузка истории…';try{const r=await fetch('/api/system/stats/history?limit=60',{cache:'no-store'});const d=await r.json();if(!r.ok)throw new Error(d.error||r.status);$('apiRaw').textContent=JSON.stringify(d,null,2)}catch(e){$('apiRaw').textContent='Ошибка истории API: '+e.message}});
+refresh();setInterval(refresh,5000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<svg width="64" height="36" viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фон переключателя (зеленый / активный) -->
+  <rect width="64" height="36" rx="18" fill="#10B981" />
+  
+  <!-- Внутренняя мягкая тенек для объема -->
+  <rect width="64" height="36" rx="18" fill="black" fill-opacity="0.05" />
+  
+  <!-- Подвижный кружок (справа) -->
+  <g filter="url(#shadow-on)">
+    <circle cx="46" cy="18" r="14" fill="#FFFFFF" />
+  </g>
+  
+  <!-- Тень под кружком -->
+  <defs>
+    <filter id="shadow-on" x="28" y="2" width="36" height="36" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.2" />
+    </filter>
+  </defs>
+</svg>

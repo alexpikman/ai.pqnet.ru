@@ -1,0 +1,12 @@
+.modal{width:min(520px,calc(100% - 28px));padding:0;border:1px solid var(--line);border-radius:15px;background:var(--panel);color:var(--text);box-shadow:0 20px 100px #0009}
+
+.modal::backdrop{background:#07070dbd;backdrop-filter:blur(5px)}
+
+.modal form{padding:22px;display:grid;gap:15px}
+
+.modal label{display:grid;gap:7px}
+
+dialog{color:var(--text);background:var(--panel);border:1px solid var(--line)}
+dialog::backdrop{background:#07070dbd;backdrop-filter:blur(5px)}
+
+.modal-card .field{min-width:0}

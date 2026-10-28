@@ -1,0 +1,17 @@
+.badge{font-size:11px;padding:5px 8px;border-radius:20px;background:var(--panel2);color:var(--text);border:1px solid var(--line)}
+
+.badge.off{background:var(--panel2);color:var(--muted);border-color:var(--line)}
+
+.badge.success{color:var(--status-completed-fg);background:var(--status-completed-bg);border-color:var(--status-completed-bg)}
+
+.badge.danger{color:var(--status-failed-fg);background:var(--status-failed-bg);border-color:var(--status-failed-bg)}
+
+:root[data-theme="dark"] .badge.success{color:#70e6b3;background:#15372c;border-color:#245f49}
+
+:root[data-theme="dark"] .badge.danger{color:#ff9ba7;background:#3c2027;border-color:#713440}
+
+.provider-row .badge{white-space:nowrap}
+.status-indicator{display:inline-block;width:7px;height:7px;border-radius:50%;flex:0 0 7px;margin:0 4px;vertical-align:middle}
+.status-indicator.is-online{background:#22c55e;box-shadow:0 0 0 2px #22c55e33}
+.status-indicator.is-offline{background:#ef4444;box-shadow:0 0 0 2px #ef444433}
+.status-indicator.is-unknown{background:var(--muted);opacity:.5}

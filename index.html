@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8fafc">
+    <meta name="description" content="PQlocalAgentOSv3 — локальная AI-платформа с агентами, моделями и инструментами разработки. Открытая разработка Build in Public.">
+    <title>PQlocalAgentOSv3 — локальная AI-платформа</title>
+    <link rel="stylesheet" href="/landing.css?v=8">
+    <script src="/landing.js?v=8" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="/" aria-label="PQlocalAgentOSv3 — главная">
+                <span class="brand-mark" aria-hidden="true">PQ</span>
+                <span class="brand-name">PQlocalAgentOS<span>v3</span></span>
+            </a>
+            <nav class="header-nav" aria-label="Основная навигация">
+                <a href="#features">Возможности</a>
+                <a href="#roadmap">Разработка</a>
+                <a href="#docs">Документация</a>
+                <a class="button button-small button-outline" href="https://github.com/alexpikman/PQlocalAgentOSv3" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Открытая разработка · Build in Public</div>
+                    <h1>Локальная AI-платформа <span class="gradient-text">для реальной работы</span></h1>
+                    <p class="hero-description">PQlocalAgentOSv3 объединяет AI-агентов, языковые модели, проекты и инструменты разработки в едином рабочем пространстве. Локальный запуск, контроль над данными и открытый исходный код.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="https://github.com/alexpikman/PQlocalAgentOSv3" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.51c.48.09.65-.21.65-.46v-1.8c-2.65.58-3.21-1.13-3.21-1.13-.44-1.1-1.08-1.4-1.08-1.4-.89-.61.07-.6.07-.6.98.07 1.5 1 1.5 1 .88 1.5 2.3 1.07 2.86.82.09-.64.35-1.07.62-1.32-2.12-.24-4.35-1.06-4.35-4.72 0-1.04.37-1.89.98-2.56-.1-.24-.43-1.21.09-2.52 0 0 .8-.26 2.61.98a9.08 9.08 0 0 1 4.75 0c1.81-1.24 2.61-.98 2.61-.98.52 1.31.19 2.28.09 2.52.61.67.98 1.52.98 2.56 0 3.67-2.23 4.48-4.36 4.71.36.31.67.9.67 1.82v2.62c0 .25.17.55.66.46A9.5 9.5 0 0 0 12 2.5Z"/></svg>
+                            Открыть GitHub
+                        </a>
+                        <a class="button button-secondary" href="/api/landing/download" id="download-zip">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 16v4h16v-4"/></svg>
+                            Скачать ZIP
+                        </a>
+                        <a class="button button-ghost" href="#docs">Документация для ИИ <span aria-hidden="true">→</span></a>
+                    </div>
+                    <div class="hero-note">Python · Vanilla JavaScript · Локальные и облачные модели</div>
+                </div>
+                
+                <!-- ПРАВАЯ КОЛОНКА -->
+                <div class="hero-visual-wrap">
+                    <div class="terminal-window">
+                        <div class="terminal-topbar">
+                            <div class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                            <span class="terminal-title">pqlocalagentos — project status</span>
+                            <span class="terminal-status">LIVE</span>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="terminal-line"><span class="terminal-prompt">$</span><span>git log -1 --oneline</span></div>
+                            <div class="terminal-output"><span class="terminal-success">●</span> <span id="latest-commit">Загрузка коммита…</span></div>
+                            <div class="terminal-divider"></div>
+                            <div class="terminal-line"><span class="terminal-prompt">$</span><span>project status</span></div>
+                            <div class="terminal-metric"><span>Документированные тесты</span><strong id="tests-count">—</strong></div>
+                            <div class="terminal-metric"><span>Последнее обновление</span><strong id="updated-at">Загрузка…</strong></div>
+                            <div class="terminal-divider"></div>
+                            <div class="terminal-line"><span class="terminal-prompt">$</span><span>system.ready</span></div>
+                            <div class="terminal-ready"><span class="ready-indicator" aria-hidden="true"></span><span>Open source. Under active development.</span></div>
+                        </div>
+                    </div>
+                    
+                    <!-- ВЫНЕСЕННЫЕ КАРТОЧКИ -->
+                    <div class="floating-card floating-card-top">
+                        <span class="floating-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"/></svg></span>
+                        <span><strong>AI Agents</strong><small>Модульная архитектура</small></span>
+                    </div>
+                    <div class="floating-card floating-card-bottom">
+                        <span class="floating-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></span>
+                        <span><strong>Local-first</strong><small>Контроль над данными</small></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="container metrics-grid">
+                <article class="metric-card"><span class="metric-label">Последний коммит</span><strong class="metric-value" id="metric-commit">—</strong><span class="metric-caption">Из GitHub API</span></article>
+                <article class="metric-card"><span class="metric-label">Тесты и проверки</span><strong class="metric-value" id="metric-tests">—</strong><span class="metric-caption">По данным репозитория</span></article>
+                <article class="metric-card"><span class="metric-label">Обновление проекта</span><strong class="metric-value" id="metric-updated">—</strong><span class="metric-caption">Последняя активность</span></article>
+            </div>
+        </section>
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-heading">
+                    <div><div class="section-kicker">ВОЗМОЖНОСТИ</div><h2>Что работает сейчас</h2></div>
+                    <p>Основные компоненты платформы развиваются как части единой системы управления AI-агентами и проектами.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20v-2a7 7 0 0 1 14 0v2M4 5l2 1M20 5l-2 1"/></svg></span><h3>AI-агенты</h3><p>Роли и инструменты для организации работы специализированных агентов.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg></span><h3>Модели и провайдеры</h3><p>Единый интерфейс для подключения локальных и облачных языковых моделей.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M8 7h8m-8 4h8"/></svg></span><h3>Память проекта</h3><p>Сводка, ограничения, задачи, агенты и контекст для продолжения работы.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5m8-5v5"/></svg></span><h3>Проекты и задачи</h3><p>Организация рабочих пространств, задач и результатов выполнения.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-2-12-4 14"/></svg></span><h3>Инструменты разработки</h3><p>Рабочая среда для технических задач и взаимодействия с кодом.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v5c0 5 3.4 8 8 10 4.6-2 8-5 8-10V6l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><h3>Контроль доступа</h3><p>Настройки доступа и разрешений для управления действиями системы.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16M7 15l4-5 3 2 5-7"/></svg></span><h3>Системная статистика</h3><p>Мониторинг ресурсов и состояния локальной рабочей среды.</p></article>
+                    <article class="feature-card"><span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><h3>Открытая архитектура</h3><p>Исходный код и документация доступны для изучения и развития.</p></article>
+                </div>
+            </div>
+        </section>
+        <section class="section section-muted" id="roadmap">
+            <div class="container roadmap-layout">
+                <div class="section-heading roadmap-heading">
+                    <div><div class="section-kicker">ROADMAP</div><h2>В разработке</h2></div>
+                    <p>Проект развивается итеративно. Статус отдельных возможностей может меняться по мере обновления исходного кода.</p>
+                </div>
+                <div class="roadmap-list">
+                    <article class="roadmap-item"><span class="roadmap-marker roadmap-marker-active" aria-hidden="true"></span><div><h3>Надёжность агентного выполнения</h3><p>Проверки результатов, обработка ошибок и предсказуемое выполнение задач.</p></div><span class="roadmap-status">В работе</span></article>
+                    <article class="roadmap-item"><span class="roadmap-marker" aria-hidden="true"></span><div><h3>Подключение локальных моделей</h3><p>Улучшение совместимости провайдеров и файловых моделей.</p></div><span class="roadmap-status">Развитие</span></article>
+                    <article class="roadmap-item"><span class="roadmap-marker" aria-hidden="true"></span><div><h3>Память и контекст проектов</h3><p>Более удобное управление знаниями, ограничениями и рабочим контекстом.</p></div><span class="roadmap-status">Развитие</span></article>
+                    <article class="roadmap-item"><span class="roadmap-marker" aria-hidden="true"></span><div><h3>Документация и автоматизация</h3><p>Актуальные материалы для разработчиков и AI-ассистентов.</p></div><span class="roadmap-status">Постепенно</span></article>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="docs">
+            <div class="container">
+                <div class="section-heading docs-heading">
+                    <div><div class="section-kicker">AI-READY DOCUMENTATION</div><h2>Документация для ИИ</h2></div>
+                    <p>Документы из GitHub можно читать прямо на этой странице. Выберите файл, чтобы загрузить его содержимое.</p>
+                </div>
+                <div class="docs-panel">
+                    <aside class="docs-sidebar" aria-label="Файлы документации">
+                        <div class="docs-sidebar-header"><span class="docs-sidebar-title">Файлы проекта</span><span class="docs-count" id="docs-count">—</span></div>
+                        <div class="docs-tree" id="docs-tree" aria-live="polite"><p class="docs-placeholder">Загрузка списка документов…</p></div>
+                    </aside>
+                    <div class="docs-content">
+                        <div class="docs-content-header">
+                            <div class="docs-file-heading"><span class="docs-file-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h5"/></svg></span><div><strong id="docs-current-title">README.md</strong><span id="docs-current-path">docs/ai-context/README.md</span></div></div>
+                            <button class="button button-small button-outline" id="copy-ai-prompt" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>Копировать для ИИ</button>
+                        </div>
+                        <div class="docs-rendered-content" id="docs-content" aria-live="polite"><p class="docs-placeholder">Загрузка документации…</p></div>
+                    </div>
+                </div>
+                <p class="docs-footnote">Документация загружается из публичного GitHub-репозитория через серверный прокси.</p>
+            </div>
+        </section>
+        <section class="section section-muted" id="technology">
+            <div class="container">
+                <div class="section-heading">
+                    <div><div class="section-kicker">TECH STACK</div><h2>Технологии</h2></div>
+                    <p>Основные технологии проекта. Список уточняется на основе данных репозитория.</p>
+                </div>
+                <div class="tech-grid" id="tech-stack"><div class="tech-placeholder">Загрузка стека технологий…</div></div>
+            </div>
+        </section>
+        <section class="closing-cta">
+            <div class="container closing-cta-inner">
+                <div><div class="section-kicker">OPEN SOURCE</div><h2>Следите за развитием проекта</h2><p>Изучайте исходный код, проверяйте изменения и участвуйте в развитии платформы.</p></div>
+                <a class="button button-primary" href="https://github.com/alexpikman/PQlocalAgentOSv3" target="_blank" rel="noopener noreferrer">Перейти в репозиторий <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a class="brand footer-brand" href="/" aria-label="PQlocalAgentOSv3 — главная"><span class="brand-mark" aria-hidden="true">PQ</span><span class="brand-name">PQlocalAgentOS<span>v3</span></span></a>
+            <p>Открытая разработка AI-платформы.</p>
+            <div class="footer-links"><span class="build-badge"><span class="status-dot" aria-hidden="true"></span>Build in Public</span><a href="https://github.com/alexpikman/PQlocalAgentOSv3" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

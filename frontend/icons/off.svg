@@ -1,0 +1,16 @@
+<svg width="64" height="36" viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фон переключателя (серый / неактивный) -->
+  <rect width="64" height="36" rx="18" fill="#374151" />
+  
+  <!-- Подвижный кружок (слева) -->
+  <g filter="url(#shadow-off)">
+    <circle cx="18" cy="18" r="14" fill="#9CA3AF" />
+  </g>
+  
+  <!-- Тень под кружком -->
+  <defs>
+    <filter id="shadow-off" x="0" y="2" width="36" height="36" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+</svg>

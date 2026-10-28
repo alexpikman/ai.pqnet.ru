@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+data/
+.DS_Store
+
+# Runtime-installed module folders; keep the catalog instructions tracked
+/modules/*/
+!/modules/README.md
+*.bak
+*.bak

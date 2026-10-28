@@ -1,0 +1,22 @@
+name: Chat event runtime CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile Python sources
+        run: python -m compileall -q server.py agent_tools.py chat tests
+      - name: Conversation store tests
+        run: python -m unittest tests.test_conversation_store -v
+      - name: Agent runtime verification tests
+        run: python -m unittest tests.test_chat_agent_runtime -v
+      - name: Server contract tests
+        run: python -m unittest tests.test_server -v
