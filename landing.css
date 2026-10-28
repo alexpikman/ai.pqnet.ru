@@ -254,8 +254,8 @@ a:focus-visible {
   .terminal-metric strong { text-align: right; overflow-wrap: anywhere; }
 }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after {
-    scroll-behavior: auto;
     transition-duration: .01ms;
     animation-duration: .01ms;
   }
