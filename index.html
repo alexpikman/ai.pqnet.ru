@@ -322,7 +322,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
     <div class="header-actions">
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Переключить тему">
         <svg id="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg id="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
     </div>
   </div>
@@ -471,7 +471,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
         <article class="card"><span class="tag">TAB 03</span><h3>Студия аватаров</h3><p>Настройка причёски, очков и цвета одежды, предпросмотр SVG и сохранение настроек. Варианты: pompadour, bob, crop, undercut, wavyLong.</p></article>
         <article class="card"><span class="tag">SYSTEM SETTINGS</span><h3>Настройки и журнал</h3><p>Рекомендуемый дополнительный экран: пути, состояние сервисов, уровень логирования, резервное копирование настроек, журнал ошибок и управление разрешениями.</p></article>
       </div>
-      <h3 style="margin-top:20px">Модули: расширение возможностей</h3>
+      <h3 class="u-mt-lg">Модули: расширение возможностей</h3>
       <p>Раздел «Модули» — самостоятельный каталог пользовательских расширений. Он должен позволять регистрировать собственные интеграции, включать/отключать их, настраивать параметры, проверять разрешения и просматривать журнал действий. SSH — один из модулей, а не особый случай в ядре приложения.</p>
       <div class="grid2">
         <article class="card"><span class="tag">REMOTE WORKSPACE</span><h3>SSH и удалённая рабочая область</h3><p>Подключение к хосту по ключу, проверка окружения, выбор рабочей директории, запуск разрешённых операций, копирование артефактов и сбор диагностических данных.</p></article>
@@ -484,7 +484,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
         <article class="card"><span class="tag">OBSERVABILITY</span><h3>Мониторинг и метрики</h3><p>Проверка сервисов, времени ответа, ошибок, токенов, очередей, дискового пространства и сбор диагностического пакета для поддержки.</p></article>
         <article class="card"><span class="tag">INTEGRATIONS</span><h3>Внешние интеграции</h3><p>Issue tracker, CI/CD, уведомления, webhooks и календарь задач через отдельные коннекторы. Секреты — в системном хранилище/переменных окружения, не в manifest.</p></article>
       </div>
-      <h3 style="margin-top:20px">Контракт модуля</h3>
+      <h3 class="u-mt-lg">Контракт модуля</h3>
       <ul>
         <li><b>Manifest:</b> уникальный ID, имя, версия, совместимость API, точка входа и описание.</li>
         <li><b>Permissions:</b> минимально необходимые разрешения — например, <code>remote.connect</code>, <code>filesystem.scoped</code>, <code>command.allowlist</code>.</li>
@@ -521,7 +521,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
           </tbody>
         </table>
       </div>
-      <p class="muted" style="font-size:11px;margin-top:10px">Важно: LangGraph, CrewAI и AutoGen — зрелые инструменты с разными сильными сторонами. PQlocalAgentOS v3 не «заменяет» их, а предлагает другой акцент: локальную среду с UI и встроенным контролем действий.</p>
+      <p class="muted u-small-note">Важно: LangGraph, CrewAI и AutoGen — зрелые инструменты с разными сильными сторонами. PQlocalAgentOS v3 не «заменяет» их, а предлагает другой акцент: локальную среду с UI и встроенным контролем действий.</p>
     </section>
 
     <!-- 06 FEATURES -->
@@ -581,7 +581,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
         <li>Действия агентов ограничены правами, а ошибки и важные операции журналируются.</li>
         <li>Есть базовые тесты API, подключения модели и основного сценария задачи.</li>
       </ul>
-      <div class="gate-highlight" style="margin-top:16px">
+      <div class="gate-highlight u-mt-md">
         <div class="head">
           <div class="icon">!</div>
           <div>
@@ -639,7 +639,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
               <li>Не многопользовательский production-сервис.</li>
               <li>Без заявленного sandbox для инструментов и полной мультимодальности.</li>
             </ul>
-            <p class="muted" style="font-size:11px">Документация загружается из публичного GitHub-репозитория через серверный прокси.</p>
+            <p class="muted u-small-text">Документация загружается из публичного GitHub-репозитория через серверный прокси.</p>
           </div>
         </div>
       </div>
@@ -659,7 +659,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
       <div class="changelog-box">
         <div class="changelog-head">
           <div class="title"><span class="dot"></span>Последние коммиты</div>
-          <a href="https://github.com/alexpikman/PQlocalAgentOSv3/commits/main" target="_blank" rel="noopener noreferrer" style="font:10px var(--mono)">Открыть GitHub ↗</a>
+          <a href="https://github.com/alexpikman/PQlocalAgentOSv3/commits/main" target="_blank" rel="noopener noreferrer" class="mono-link">Открыть GitHub ↗</a>
         </div>
         <div id="changelog-list">
           <article><p class="msg">docs(ai-context): onboarding documentation for AI assistants</p><p class="meta"><span class="hash">1ce4369</span><span>28 окт. 2026 г.</span></p></article>
@@ -675,7 +675,7 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
         <h2>Смотреть код, а не обещания</h2>
         <p>Исходники, документация и история коммитов открыты на GitHub. Проверьте, подходит ли вам подход проекта, до того как что-то устанавливать.</p>
       </div>
-      <div class="hero-actions" style="margin-top:0">
+      <div class="hero-actions u-mt-0">
         <a class="btn primary" href="https://github.com/alexpikman/PQlocalAgentOSv3" target="_blank" rel="noopener noreferrer">Перейти в репозиторий ↗</a>
         <a class="btn secondary" href="/api/landing/download">Скачать ZIP</a>
       </div>
