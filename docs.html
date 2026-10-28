@@ -10,7 +10,7 @@
     <style>
         :root { --bg-primary: #f8fafc; --bg-card: #ffffff; --text-main: #0f172a; --text-muted: #475569; --accent: #0284c7; --accent-glow: rgba(2, 132, 199, 0.1); --border: #e2e8f0; --code-bg: #f1f5f9; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
+        body { min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
         header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 0 22px; position: sticky; top: 0; z-index: 100; }
         .header-inner { width: min(100% - 44px, 1280px); min-height: 72px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
         .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 18px; color: var(--text-main); display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -27,7 +27,6 @@
         p { color: var(--text-muted); margin-bottom: 16px; font-size: 14px; }
         pre { background: var(--code-bg); padding: 16px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; overflow-x: auto; margin-bottom: 16px; border: 1px solid var(--border); }
         footer { border-top: 1px solid var(--border); background: var(--bg-card); text-align: center; padding: 20px 22px; font-size: 13px; color: var(--text-muted); margin-top: auto; }
-        body { min-height: 100vh; display: flex; flex-direction: column; }
         @media (max-width: 760px) { .header-inner { padding: 12px 0; align-items: flex-start; flex-direction: column; gap: 10px; } .nav-links { gap: 8px 14px; } .container { width: min(100% - 32px, 1280px); margin-top: 20px; } .card { padding: 22px; } h1 { font-size: clamp(22px, 6vw, 28px); } }
     </style>
 </head>
