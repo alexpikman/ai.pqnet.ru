@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="ru" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -713,10 +713,10 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
     document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'light' ? '#f6f8fb' : '#090d13');
     sun.style.display = theme === 'light' ? 'none' : 'block';
     moon.style.display = theme === 'light' ? 'block' : 'none';
-    try { localStorage.setItem('pql-theme', theme); } catch(e){}
+    try { localStorage.setItem('pqnet-theme', theme); } catch(e){}
   }
-  let saved = 'dark';
-  try { saved = localStorage.getItem('pql-theme') || 'dark'; } catch(e){}
+  let saved = 'light';
+  try { saved = localStorage.getItem('pqnet-theme') || 'light'; } catch(e){}
   apply(saved);
   btn.addEventListener('click', () => {
     apply(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
