@@ -18,6 +18,54 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/landing.css?v=13">
     <script src="/landing.js?v=8" defer></script>
+    <!-- Подключаем Tailwind CSS (если еще не подключен) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  /* Кастомные цветные тени при наведении */
+  .hover-shadow-teal:hover {
+    box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.25), 0 8px 10px -6px rgba(20, 184, 166, 0.1);
+  }
+  .hover-shadow-indigo:hover {
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.25), 0 8px 10px -6px rgba(99, 102, 241, 0.1);
+  }
+  .hover-shadow-emerald:hover {
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.25), 0 8px 10px -6px rgba(16, 185, 129, 0.1);
+  }
+  .hover-shadow-sky:hover {
+    box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.25), 0 8px 10px -6px rgba(14, 165, 233, 0.1);
+  }
+
+  /* Эффект диагонального блика */
+  .shimmer-light {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-light::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
+    transform: rotate(30deg) translateX(-100%);
+    transition: transform 0.8s ease;
+  }
+  .shimmer-light:hover::after {
+    transform: rotate(30deg) translateX(100%);
+  }
+
+  /* Анимация пульсации для WebSockets */
+  @keyframes pulse-stroke {
+    0%, 100% { stroke-dashoffset: 0; opacity: 0.4; }
+    50% { stroke-dashoffset: 5; opacity: 1; }
+  }
+  .svg-pulse-stroke {
+    stroke-dasharray: 4;
+    animation: pulse-stroke 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>
 </head>
 <body>
     <header class="site-header">
@@ -44,12 +92,52 @@
                     <h1>Единая рабочая среда <span class="gradient-text">для ИИ-помощников</span></h1>
                     <p class="hero-description">PQlocalAgentOS v3 — это рабочая среда, в которой ИИ-помощники совместно решают задачи, работают с проектами и используют разные языковые модели. Модели можно запускать на своём компьютере, чтобы лучше контролировать данные, или при необходимости подключать облачные сервисы. Исходный код открыт, а выполнение задач можно контролировать.</p>
                     <div class="hero-note">Python · Vanilla JavaScript · Локальные и облачные модели</div>
-                    <div class="mt-5 flex flex-wrap gap-2" aria-label="Технологический стек">
-                        <span class="inline-flex items-center rounded-full border border-sky-200/80 bg-white/80 px-3 py-1 font-mono text-xs font-medium text-sky-800 shadow-sm backdrop-blur-md">FastAPI</span>
-                        <span class="inline-flex items-center rounded-full border border-indigo-200/80 bg-white/80 px-3 py-1 font-mono text-xs font-medium text-indigo-800 shadow-sm backdrop-blur-md">WebSockets</span>
-                        <span class="inline-flex items-center rounded-full border border-emerald-200/80 bg-white/80 px-3 py-1 font-mono text-xs font-medium text-emerald-800 shadow-sm backdrop-blur-md">Ollama</span>
-                        <span class="inline-flex items-center rounded-full border border-slate-200 bg-white/80 px-3 py-1 font-mono text-xs font-medium text-slate-700 shadow-sm backdrop-blur-md">Windows Native</span>
-                    </div>
+                    <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 max-w-2xl mx-auto" aria-label="Технологический стек">
+    
+    <!-- FastAPI -->
+    <span class="shimmer-light inline-flex items-center gap-2 rounded-full border border-teal-200/80 bg-teal-50/60 hover:bg-teal-50 px-4 py-2 font-mono text-xs md:text-sm font-semibold text-teal-800 shadow-sm hover-shadow-teal hover:border-teal-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 cursor-default group">
+        <svg class="w-4 h-4 text-teal-600 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" class="group-hover:fill-teal-500/20 transition-colors"></path>
+        </svg>
+        <span>FastAPI</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse"></span>
+    </span>
+
+    <!-- WebSockets -->
+    <span class="shimmer-light inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50/60 hover:bg-indigo-50 px-4 py-2 font-mono text-xs md:text-sm font-semibold text-indigo-800 shadow-sm hover-shadow-indigo hover:border-indigo-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 cursor-default group">
+        <svg class="w-4 h-4 text-indigo-600 transition-transform duration-500 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 11a9 9 0 0 1 9 9" class="opacity-40"></path>
+            <path d="M4 4a16 16 0 0 1 16 16" class="svg-pulse-stroke"></path>
+            <circle cx="5" cy="19" r="1.5" fill="currentColor"></circle>
+        </svg>
+        <span>WebSockets</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+    </span>
+
+    <!-- Ollama -->
+    <span class="shimmer-light inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-50/60 hover:bg-emerald-50 px-4 py-2 font-mono text-xs md:text-sm font-semibold text-emerald-800 shadow-sm hover-shadow-emerald hover:border-emerald-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 cursor-default group">
+        <svg class="w-4 h-4 text-emerald-600 transition-transform duration-500 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" class="group-hover:fill-emerald-500/30 transition-colors"></circle>
+            <path d="M12 3v3m0 12v3M3 12h3m12 0h3" stroke-linecap="round"></path>
+            <path d="M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1" stroke-linecap="round" class="opacity-60"></path>
+        </svg>
+        <span>Ollama</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+    </span>
+
+    <!-- Windows Native -->
+    <span class="shimmer-light inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-sky-50/60 hover:bg-sky-50 px-4 py-2 font-mono text-xs md:text-sm font-semibold text-sky-800 shadow-sm hover-shadow-sky hover:border-sky-300 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 cursor-default group">
+        <svg class="w-4 h-4 text-sky-600 transition-transform duration-500 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 5.5L10.5 4.5V11.5H3V5.5Z" class="group-hover:fill-sky-500/20 transition-colors"></path>
+            <path d="M11.5 4.3L21 3V11.5H11.5V4.3Z" class="group-hover:fill-sky-500/30 transition-colors"></path>
+            <path d="M3 12.5H10.5V19.5L3 18.5V12.5Z" class="group-hover:fill-sky-500/20 transition-colors"></path>
+            <path d="M11.5 12.5H21V21L11.5 19.7V12.5Z" class="group-hover:fill-sky-500/30 transition-colors"></path>
+        </svg>
+        <span>Windows Native</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
+    </span>
+
+</div>
                 </div>
                 
                 <!-- ПРАВАЯ КОЛОНКА -->
