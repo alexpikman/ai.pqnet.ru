@@ -217,7 +217,7 @@ img, svg { display: block; max-width: 100%; }
     .floating-card { display: none; }
 }
 @media (max-width: 600px) {
-    .container { width: min(100% - 32px, 1200px); }
+    .container { width: min(100% - 32px, 1280px); }
     .header-inner { min-height: 66px; gap: 12px; }
     .brand-mark { width: 36px; height: 36px; }
     .brand-name { max-width: 150px; font-size: 14px; }
