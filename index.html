@@ -806,10 +806,19 @@ main{padding-left:clamp(16px,4vw,58px);padding-right:clamp(16px,4vw,58px)}
   }
   if (copyBtn && content) {
     copyBtn.addEventListener('click', async () => {
+      const active = tree ? tree.querySelector('.docs-item.is-active') : null;
+      const path = active ? active.dataset.path : 'docs/ai-context/README.md';
+      const prompt = [
+        'Прочитай https://ai.pqnet.ru/api/landing/doc?path=' + path,
+        'и https://ai.pqnet.ru/api/landing/doc?path=docs/ai-context/README.md.',
+        'Схема работы: я формулирую идею, ты подготавливаешь точный промпт для изменения кода в GitHub, затем я проверяю результат в браузере.'
+      ].join('\\n');
       try {
-        await navigator.clipboard.writeText(content.innerText || '');
-        showToast('Документ скопирован для ИИ');
-      } catch(_) { showToast('Не удалось скопировать'); }
+        await navigator.clipboard.writeText(prompt);
+        showToast('Инструкция для ИИ скопирована');
+      } catch(_) {
+        showToast('Не удалось скопировать');
+      }
     });
   }
 })();
